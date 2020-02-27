@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://soap.gsm.co.za/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://soap.gsm.co.za/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://soap.gsm.co.za/">
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecvLogByKeyResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByWatermark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="watermark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByWatermarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecvLogByWatermarkResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecvLogByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecvLogByDateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLogByKeyResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByWatermark">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="watermark" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByWatermarkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLogByWatermarkResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendLogByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendLogByDateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultiSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batchcols" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gwusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gwpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultiSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMultiSMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultiEMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batchcols" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gwusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gwpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultiEMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMultiEMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEMS" />
+  </wsdl:message>
+  <wsdl:message name="SendEMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:RecvLogByKey" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:RecvLogByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByWatermarkSoapIn">
+    <wsdl:part name="parameters" element="tns:RecvLogByWatermark" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByWatermarkSoapOut">
+    <wsdl:part name="parameters" element="tns:RecvLogByWatermarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:RecvLogByDate" />
+  </wsdl:message>
+  <wsdl:message name="RecvLogByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:RecvLogByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:SendLogByKey" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:SendLogByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByWatermarkSoapIn">
+    <wsdl:part name="parameters" element="tns:SendLogByWatermark" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByWatermarkSoapOut">
+    <wsdl:part name="parameters" element="tns:SendLogByWatermarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SendLogByDate" />
+  </wsdl:message>
+  <wsdl:message name="SendLogByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SendLogByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMultiSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMultiSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendMultiSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMultiSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMultiEMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMultiEMS" />
+  </wsdl:message>
+  <wsdl:message name="SendMultiEMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMultiEMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="XML2SMSServiceSoap">
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEMS">
+      <wsdl:input message="tns:SendEMSSoapIn" />
+      <wsdl:output message="tns:SendEMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByKey">
+      <wsdl:input message="tns:RecvLogByKeySoapIn" />
+      <wsdl:output message="tns:RecvLogByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByWatermark">
+      <wsdl:input message="tns:RecvLogByWatermarkSoapIn" />
+      <wsdl:output message="tns:RecvLogByWatermarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByDate">
+      <wsdl:input message="tns:RecvLogByDateSoapIn" />
+      <wsdl:output message="tns:RecvLogByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByKey">
+      <wsdl:input message="tns:SendLogByKeySoapIn" />
+      <wsdl:output message="tns:SendLogByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByWatermark">
+      <wsdl:input message="tns:SendLogByWatermarkSoapIn" />
+      <wsdl:output message="tns:SendLogByWatermarkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByDate">
+      <wsdl:input message="tns:SendLogByDateSoapIn" />
+      <wsdl:output message="tns:SendLogByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiSMS">
+      <wsdl:input message="tns:SendMultiSMSSoapIn" />
+      <wsdl:output message="tns:SendMultiSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiEMS">
+      <wsdl:input message="tns:SendMultiEMSSoapIn" />
+      <wsdl:output message="tns:SendMultiEMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XML2SMSServiceSoap" type="tns:XML2SMSServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMS">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendEMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByKey">
+      <soap:operation soapAction="https://soap.gsm.co.za/RecvLogByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByWatermark">
+      <soap:operation soapAction="https://soap.gsm.co.za/RecvLogByWatermark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByDate">
+      <soap:operation soapAction="https://soap.gsm.co.za/RecvLogByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByKey">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendLogByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByWatermark">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendLogByWatermark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByDate">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendLogByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiSMS">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendMultiSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiEMS">
+      <soap:operation soapAction="https://soap.gsm.co.za/SendMultiEMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="XML2SMSServiceSoap12" type="tns:XML2SMSServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEMS">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendEMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByKey">
+      <soap12:operation soapAction="https://soap.gsm.co.za/RecvLogByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByWatermark">
+      <soap12:operation soapAction="https://soap.gsm.co.za/RecvLogByWatermark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecvLogByDate">
+      <soap12:operation soapAction="https://soap.gsm.co.za/RecvLogByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByKey">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendLogByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByWatermark">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendLogByWatermark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLogByDate">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendLogByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiSMS">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendMultiSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultiEMS">
+      <soap12:operation soapAction="https://soap.gsm.co.za/SendMultiEMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XML2SMSService">
+    <wsdl:port name="XML2SMSServiceSoap" binding="tns:XML2SMSServiceSoap">
+      <soap:address location="https://soap.gsm.co.za/xml2sms.asmx" />
+    </wsdl:port>
+    <wsdl:port name="XML2SMSServiceSoap12" binding="tns:XML2SMSServiceSoap12">
+      <soap12:address location="https://soap.gsm.co.za/xml2sms.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

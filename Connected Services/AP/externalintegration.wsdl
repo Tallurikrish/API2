@@ -1,0 +1,2983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.acpas.co.za/wsIntegration/externalintegration.asmx" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.acpas.co.za/wsIntegration/externalintegration.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.acpas.co.za/wsIntegration/externalintegration.asmx">
+      <s:element name="Insert_New_Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Firstnames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="GenderId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaritalId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PhysCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PosCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FaxNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SMS_Activated" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sal_FreqId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLoanAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_CustomerResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Customer_Information">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Firstnames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="GenderId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaritalId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PhysCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PosCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FaxNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SMS_Activated" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sal_FreqId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLoanAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Customer_InformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update_Customer_InformationResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_Bank">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="BankId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountHolder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccountTypeId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ExpiryMonth" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ExpiryYear" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentBank" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_BankResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_Customer_BankResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Employer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmployerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PhysCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosArea" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosProvince" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PosCountryId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="PosCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactPerson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Payday" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="PaydayFormula" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_EmployerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_EmployerResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_Employer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EmployerId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmployeeNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_EmployerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_Customer_EmployerResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_Affordability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="GrossSalary" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="InterestIncome" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dividends" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Bonus" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Overtime" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="PayslipDeductions" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalIncome" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="MortageRent" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Insurance" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="ElectricityWater" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="GasOil" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Phone" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="VehiclePayment" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fuel" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="HealthInsurance" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Medicine" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Groceries" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Clothing" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Education" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dining" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="SalonBarber" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentLoan" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="OtherLoan" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CreditCard" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="AlimonyChildSupport" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Taxes" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Other" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalExpenses" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Affordability" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_AffordabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_Customer_AffordabilityResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Customer_Affordability_New">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="affordability" type="tns:ClientAffordability" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ClientAffordability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Client_RecordID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomeFixedMonthlyGrossSalaryAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeFixedMonthlyGrossSalaryNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomeAvgMonthlyOvertimeAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeAvgOvertimeNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomeOtherMonthlyIncomeAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeOtherMonthlyIncomeNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomeContributionFamilyMemberAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeContributionFamilyMemberNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomeSpouseAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeSpouseNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPayslipDeductionsAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalPayslipDeductionsNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseConsumerDeclaration" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseAccomodationOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseAccomodationAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseAccomodationNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseTransportOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseTransportAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseTransportNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseFoodOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseFoodAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseFoodNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseEducationOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseEducationAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseEducationNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseMedicalOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseMedicalAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseMedicalNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseWaterOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseWaterAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseWaterNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseMaintenanceOption" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpenseMaintenanceAmt" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpenseMaintenanceNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClientLoanPersentage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClientXDSScore" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Loans" type="tns:ArrayOfAffordabilityExpense" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherExpenses" type="tns:ArrayOfAffordabilityExpense" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonthlyExpenses" type="tns:ArrayOfAffordabilityExpense" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAffordabilityExpense">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AffordabilityExpense" nillable="true" type="tns:AffordabilityExpense" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AffordabilityExpense">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_Customer_Affordability_NewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_Customer_Affordability_NewResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Agreement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Capital" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="FirstDueDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Terms" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Account_Disbursement" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Account_Collection" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EDI_Tracking" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Add_Insurance" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransTypeId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_AgreementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_AgreementResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Agreement_With_Correlation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Capital" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="FirstDueDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Terms" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Account_Disbursement" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Account_Collection" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EDI_Tracking" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Add_Insurance" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransTypeId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorrelationKey_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorrelationKey_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CorrelationKey_3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Agreement_With_CorrelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_Agreement_With_CorrelationResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_Agreement_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecordId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AgreementNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AgreementStatusId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_Agreement_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update_Client_Agreement_StatusResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecordId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update_Client_StatusResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_MaxLoanAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="RecordId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLoanAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Client_MaxLoanAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update_Client_MaxLoanAmountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Languages">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_LanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_LanguagesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Gender">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_GenderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_GenderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_MaritalStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_MaritalStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_MaritalStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Payment_Report">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Account" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EmployerID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="BankID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Payment_ReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Payment_ReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Countries">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_CountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CountriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_SalaryFreqencies">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_SalaryFreqenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_SalaryFreqenciesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_PaydayFormula">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_PaydayFormulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_PaydayFormulaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_ClientStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_ClientStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_ClientStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_EmployerList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_EmployerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_EmployerListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Life_Insurance_Agreement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ACCOUNTNO" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AGREEMENTNO" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Life_Insurance_AgreementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Life_Insurance_AgreementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Banks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_BanksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_BanksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_VerificationReady_Banks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_VerificationReady_BanksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_VerificationReady_BanksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_BankAccountTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_BankAccountTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_BankAccountTypesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_AccountingCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_AccountingCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_AccountingCodesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_NextPayDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="PMonth" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="PYear" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_NextPayDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_NextPayDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do_CreditCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do_CreditCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Do_CreditCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CustomerInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomersRecent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomersRecentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CustomersRecentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do_Customer_Exists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer_IdentityNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do_Customer_ExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Do_Customer_ExistsResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Balance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_BalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Get_Customer_BalanceResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerAgreements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerAgreementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CustomerAgreementsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerAgreementsRecent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CustomerAgreementsRecentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CustomerAgreementsRecentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pop_Customer_Agreement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ACCOUNTNO" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AGREEMENTNO" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pop_Customer_AgreementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pop_Customer_AgreementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pop_Agreement_Instalments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ACCOUNTNO" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AGREEMENTNO" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pop_Agreement_InstalmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pop_Agreement_InstalmentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_NLR_ReferenceNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProviderId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NLRRefNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_NLR_ReferenceNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_NLR_ReferenceNoResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Insurance_Codes">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Insurance_CodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Insurance_CodesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_PAYD_URL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AgreementNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="InstNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_PAYD_URLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_PAYD_URLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_Email">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailaddressTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailaddressFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailaddressccTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="replyTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_EmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Send_EmailResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_AccountVerification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_AccountVerificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XDS_AccountVerificationResult" type="tns:AccountVerification_Enquiry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountVerification_Enquiry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EnquiryID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryError" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XDS_AccountVerification_Result">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EnquiryId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_AccountVerification_ResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XDS_AccountVerification_ResultResult" type="tns:AccountVerification_Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountVerification_Detail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EnquiryID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryResultXML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryError" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumber" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountTypeProvide" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNumber" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountFound" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdNumberMatch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InitialsMatch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SurnameMatch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountOpen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountOpenForThreeMonths" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountDebits" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountCredits" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountTypeReturn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Decision" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XDS_NLRRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="AgreementNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_NLRRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XDS_NLRRegistrationResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_PreVetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_PreVettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XDS_PreVettingResult" type="tns:Credit_Rate_Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Credit_Rate_Detail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ConsumerID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnquiryID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnquiryResultID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnquiryScore" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryExculsionReason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryRiskBand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryDecision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnquiryReason" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="XDS_PreVetting_Non_Client">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentityNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XDS_PreVetting_Non_ClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XDS_PreVetting_Non_ClientResult" type="tns:Credit_Rate_Detail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validate_IdentityNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validate_IdentityNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Validate_IdentityNoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validate_User">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validate_UserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Validate_UserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Credit_Rating_To_Acpas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="CLIENT_RECORDID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDENTITYNO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ENQURIYID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="CREDIT_SCORE" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="RISK_BAND" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EXCLUSION_REASON" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DECISION" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="USERID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Credit_Rating_To_AcpasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add_Credit_Rating_To_AcpasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Client_Prevettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Client_PrevettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Client_PrevettingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Statement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_StatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_StatementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Credit_Profile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Credit_ProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_Credit_ProfileResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Quotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="INITIALS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SURNAME" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDNUMBER" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PHONE1" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MOBILE" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FAXNO" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="SALFREQ" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Capital" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Terms" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="DueDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="COLLECTIONACC" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_QuotationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_QuotationResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Quotation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="QUOTEID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_QuotationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_QuotationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Agreement_Count">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="CLIENTID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Agreement_CountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_Agreement_CountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Agreement_Payment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccIn" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="SourceId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_New_Agreement_PaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_New_Agreement_PaymentResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TS_SEND_SMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ACCOUNTNO" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSG" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MOBILENUMBER" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TS_SEND_SMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TS_SEND_SMSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_Correlationkey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BRANCHID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Customer_AccountNo" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Agreement_No" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Customer_CorrelationkeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Customer_CorrelationkeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Insert_New_CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Customer" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Customer_InformationSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Customer_Information" />
+  </wsdl:message>
+  <wsdl:message name="Update_Customer_InformationSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Customer_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_BankSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_Bank" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_BankSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_BankResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_EmployerSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Employer" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_EmployerSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_EmployerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_EmployerSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_Employer" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_EmployerSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_EmployerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_AffordabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_Affordability" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_AffordabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_AffordabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_Affordability_NewSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_Affordability_New" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Customer_Affordability_NewSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Customer_Affordability_NewResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_AgreementSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Agreement" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_AgreementSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_AgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_Agreement_With_CorrelationSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Agreement_With_Correlation" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_Agreement_With_CorrelationSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_Agreement_With_CorrelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_Agreement_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Client_Agreement_Status" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_Agreement_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Client_Agreement_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Client_Status" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Client_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_MaxLoanAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Client_MaxLoanAmount" />
+  </wsdl:message>
+  <wsdl:message name="Update_Client_MaxLoanAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Client_MaxLoanAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_LanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Languages" />
+  </wsdl:message>
+  <wsdl:message name="Get_LanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_LanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_GenderSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Gender" />
+  </wsdl:message>
+  <wsdl:message name="Get_GenderSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_GenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_MaritalStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_MaritalStatus" />
+  </wsdl:message>
+  <wsdl:message name="Get_MaritalStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_MaritalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Payment_ReportSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Payment_Report" />
+  </wsdl:message>
+  <wsdl:message name="Get_Payment_ReportSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Payment_ReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Countries" />
+  </wsdl:message>
+  <wsdl:message name="Get_CountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_SalaryFreqenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_SalaryFreqencies" />
+  </wsdl:message>
+  <wsdl:message name="Get_SalaryFreqenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_SalaryFreqenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_PaydayFormulaSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_PaydayFormula" />
+  </wsdl:message>
+  <wsdl:message name="Get_PaydayFormulaSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_PaydayFormulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_ClientStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_ClientStatus" />
+  </wsdl:message>
+  <wsdl:message name="Get_ClientStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_ClientStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_EmployerListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_EmployerList" />
+  </wsdl:message>
+  <wsdl:message name="Get_EmployerListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_EmployerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Life_Insurance_AgreementSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Life_Insurance_Agreement" />
+  </wsdl:message>
+  <wsdl:message name="Get_Life_Insurance_AgreementSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Life_Insurance_AgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_BanksSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Banks" />
+  </wsdl:message>
+  <wsdl:message name="Get_BanksSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_BanksResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_VerificationReady_BanksSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_VerificationReady_Banks" />
+  </wsdl:message>
+  <wsdl:message name="Get_VerificationReady_BanksSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_VerificationReady_BanksResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_BankAccountTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_BankAccountTypes" />
+  </wsdl:message>
+  <wsdl:message name="Get_BankAccountTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_BankAccountTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_AccountingCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_AccountingCodes" />
+  </wsdl:message>
+  <wsdl:message name="Get_AccountingCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_AccountingCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_NextPayDateSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_NextPayDate" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_NextPayDateSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_NextPayDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Do_CreditCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:Do_CreditCheck" />
+  </wsdl:message>
+  <wsdl:message name="Do_CreditCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:Do_CreditCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_CustomerInfo" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CustomerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomersRecentSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_CustomersRecent" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomersRecentSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CustomersRecentResponse" />
+  </wsdl:message>
+  <wsdl:message name="Do_Customer_ExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:Do_Customer_Exists" />
+  </wsdl:message>
+  <wsdl:message name="Do_Customer_ExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:Do_Customer_ExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_BalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Balance" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_BalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_BalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerAgreementsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_CustomerAgreements" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerAgreementsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CustomerAgreementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerAgreementsRecentSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_CustomerAgreementsRecent" />
+  </wsdl:message>
+  <wsdl:message name="Get_CustomerAgreementsRecentSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CustomerAgreementsRecentResponse" />
+  </wsdl:message>
+  <wsdl:message name="Pop_Customer_AgreementSoapIn">
+    <wsdl:part name="parameters" element="tns:Pop_Customer_Agreement" />
+  </wsdl:message>
+  <wsdl:message name="Pop_Customer_AgreementSoapOut">
+    <wsdl:part name="parameters" element="tns:Pop_Customer_AgreementResponse" />
+  </wsdl:message>
+  <wsdl:message name="Pop_Agreement_InstalmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Pop_Agreement_Instalments" />
+  </wsdl:message>
+  <wsdl:message name="Pop_Agreement_InstalmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Pop_Agreement_InstalmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_NLR_ReferenceNoSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_NLR_ReferenceNo" />
+  </wsdl:message>
+  <wsdl:message name="Insert_NLR_ReferenceNoSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_NLR_ReferenceNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Insurance_CodesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Insurance_Codes" />
+  </wsdl:message>
+  <wsdl:message name="Get_Insurance_CodesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Insurance_CodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_PAYD_URLSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_PAYD_URL" />
+  </wsdl:message>
+  <wsdl:message name="Get_PAYD_URLSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_PAYD_URLResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_EmailSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_Email" />
+  </wsdl:message>
+  <wsdl:message name="Send_EmailSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_EmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="XDS_AccountVerificationSoapIn">
+    <wsdl:part name="parameters" element="tns:XDS_AccountVerification" />
+  </wsdl:message>
+  <wsdl:message name="XDS_AccountVerificationSoapOut">
+    <wsdl:part name="parameters" element="tns:XDS_AccountVerificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="XDS_AccountVerification_ResultSoapIn">
+    <wsdl:part name="parameters" element="tns:XDS_AccountVerification_Result" />
+  </wsdl:message>
+  <wsdl:message name="XDS_AccountVerification_ResultSoapOut">
+    <wsdl:part name="parameters" element="tns:XDS_AccountVerification_ResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="XDS_NLRRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:XDS_NLRRegistration" />
+  </wsdl:message>
+  <wsdl:message name="XDS_NLRRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:XDS_NLRRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="XDS_PreVettingSoapIn">
+    <wsdl:part name="parameters" element="tns:XDS_PreVetting" />
+  </wsdl:message>
+  <wsdl:message name="XDS_PreVettingSoapOut">
+    <wsdl:part name="parameters" element="tns:XDS_PreVettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XDS_PreVetting_Non_ClientSoapIn">
+    <wsdl:part name="parameters" element="tns:XDS_PreVetting_Non_Client" />
+  </wsdl:message>
+  <wsdl:message name="XDS_PreVetting_Non_ClientSoapOut">
+    <wsdl:part name="parameters" element="tns:XDS_PreVetting_Non_ClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="Validate_IdentityNoSoapIn">
+    <wsdl:part name="parameters" element="tns:Validate_IdentityNo" />
+  </wsdl:message>
+  <wsdl:message name="Validate_IdentityNoSoapOut">
+    <wsdl:part name="parameters" element="tns:Validate_IdentityNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Validate_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Validate_User" />
+  </wsdl:message>
+  <wsdl:message name="Validate_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Validate_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_Credit_Rating_To_AcpasSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Credit_Rating_To_Acpas" />
+  </wsdl:message>
+  <wsdl:message name="Add_Credit_Rating_To_AcpasSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_Credit_Rating_To_AcpasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Client_PrevettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Client_Prevettings" />
+  </wsdl:message>
+  <wsdl:message name="Get_Client_PrevettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Client_PrevettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_StatementSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Statement" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_StatementSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_StatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_Credit_ProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Credit_Profile" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_Credit_ProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Credit_ProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_QuotationSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Quotation" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_QuotationSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_QuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_QuotationSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Quotation" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_QuotationSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_QuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_Agreement_CountSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Agreement_Count" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_Agreement_CountSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Agreement_CountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_Agreement_PaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_New_Agreement_Payment" />
+  </wsdl:message>
+  <wsdl:message name="Insert_New_Agreement_PaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_New_Agreement_PaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="TS_SEND_SMSSoapIn">
+    <wsdl:part name="parameters" element="tns:TS_SEND_SMS" />
+  </wsdl:message>
+  <wsdl:message name="TS_SEND_SMSSoapOut">
+    <wsdl:part name="parameters" element="tns:TS_SEND_SMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_CorrelationkeySoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Customer_Correlationkey" />
+  </wsdl:message>
+  <wsdl:message name="Get_Customer_CorrelationkeySoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Customer_CorrelationkeyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="externalintegrationSoap">
+    <wsdl:operation name="Insert_New_Customer">
+      <wsdl:input message="tns:Insert_New_CustomerSoapIn" />
+      <wsdl:output message="tns:Insert_New_CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Customer_Information">
+      <wsdl:input message="tns:Update_Customer_InformationSoapIn" />
+      <wsdl:output message="tns:Update_Customer_InformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Bank">
+      <wsdl:input message="tns:Insert_Customer_BankSoapIn" />
+      <wsdl:output message="tns:Insert_Customer_BankSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Employer">
+      <wsdl:input message="tns:Insert_New_EmployerSoapIn" />
+      <wsdl:output message="tns:Insert_New_EmployerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Employer">
+      <wsdl:input message="tns:Insert_Customer_EmployerSoapIn" />
+      <wsdl:output message="tns:Insert_Customer_EmployerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability">
+      <wsdl:input message="tns:Insert_Customer_AffordabilitySoapIn" />
+      <wsdl:output message="tns:Insert_Customer_AffordabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability_New">
+      <wsdl:input message="tns:Insert_Customer_Affordability_NewSoapIn" />
+      <wsdl:output message="tns:Insert_Customer_Affordability_NewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement">
+      <wsdl:input message="tns:Insert_New_AgreementSoapIn" />
+      <wsdl:output message="tns:Insert_New_AgreementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_With_Correlation">
+      <wsdl:input message="tns:Insert_New_Agreement_With_CorrelationSoapIn" />
+      <wsdl:output message="tns:Insert_New_Agreement_With_CorrelationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Agreement_Status">
+      <wsdl:input message="tns:Update_Client_Agreement_StatusSoapIn" />
+      <wsdl:output message="tns:Update_Client_Agreement_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Status">
+      <wsdl:input message="tns:Update_Client_StatusSoapIn" />
+      <wsdl:output message="tns:Update_Client_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_MaxLoanAmount">
+      <wsdl:input message="tns:Update_Client_MaxLoanAmountSoapIn" />
+      <wsdl:output message="tns:Update_Client_MaxLoanAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Languages">
+      <wsdl:input message="tns:Get_LanguagesSoapIn" />
+      <wsdl:output message="tns:Get_LanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Gender">
+      <wsdl:input message="tns:Get_GenderSoapIn" />
+      <wsdl:output message="tns:Get_GenderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_MaritalStatus">
+      <wsdl:input message="tns:Get_MaritalStatusSoapIn" />
+      <wsdl:output message="tns:Get_MaritalStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Payment_Report">
+      <wsdl:input message="tns:Get_Payment_ReportSoapIn" />
+      <wsdl:output message="tns:Get_Payment_ReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Countries">
+      <wsdl:input message="tns:Get_CountriesSoapIn" />
+      <wsdl:output message="tns:Get_CountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_SalaryFreqencies">
+      <wsdl:input message="tns:Get_SalaryFreqenciesSoapIn" />
+      <wsdl:output message="tns:Get_SalaryFreqenciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_PaydayFormula">
+      <wsdl:input message="tns:Get_PaydayFormulaSoapIn" />
+      <wsdl:output message="tns:Get_PaydayFormulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ClientStatus">
+      <wsdl:input message="tns:Get_ClientStatusSoapIn" />
+      <wsdl:output message="tns:Get_ClientStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_EmployerList">
+      <wsdl:input message="tns:Get_EmployerListSoapIn" />
+      <wsdl:output message="tns:Get_EmployerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Life_Insurance_Agreement">
+      <wsdl:input message="tns:Get_Life_Insurance_AgreementSoapIn" />
+      <wsdl:output message="tns:Get_Life_Insurance_AgreementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Banks">
+      <wsdl:input message="tns:Get_BanksSoapIn" />
+      <wsdl:output message="tns:Get_BanksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_VerificationReady_Banks">
+      <wsdl:input message="tns:Get_VerificationReady_BanksSoapIn" />
+      <wsdl:output message="tns:Get_VerificationReady_BanksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_BankAccountTypes">
+      <wsdl:input message="tns:Get_BankAccountTypesSoapIn" />
+      <wsdl:output message="tns:Get_BankAccountTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_AccountingCodes">
+      <wsdl:input message="tns:Get_AccountingCodesSoapIn" />
+      <wsdl:output message="tns:Get_AccountingCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_NextPayDate">
+      <wsdl:input message="tns:Get_Customer_NextPayDateSoapIn" />
+      <wsdl:output message="tns:Get_Customer_NextPayDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Do_CreditCheck">
+      <wsdl:input message="tns:Do_CreditCheckSoapIn" />
+      <wsdl:output message="tns:Do_CreditCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerInfo">
+      <wsdl:input message="tns:Get_CustomerInfoSoapIn" />
+      <wsdl:output message="tns:Get_CustomerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomersRecent">
+      <wsdl:input message="tns:Get_CustomersRecentSoapIn" />
+      <wsdl:output message="tns:Get_CustomersRecentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Do_Customer_Exists">
+      <wsdl:input message="tns:Do_Customer_ExistsSoapIn" />
+      <wsdl:output message="tns:Do_Customer_ExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Balance">
+      <wsdl:input message="tns:Get_Customer_BalanceSoapIn" />
+      <wsdl:output message="tns:Get_Customer_BalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreements">
+      <wsdl:input message="tns:Get_CustomerAgreementsSoapIn" />
+      <wsdl:output message="tns:Get_CustomerAgreementsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreementsRecent">
+      <wsdl:input message="tns:Get_CustomerAgreementsRecentSoapIn" />
+      <wsdl:output message="tns:Get_CustomerAgreementsRecentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Customer_Agreement">
+      <wsdl:input message="tns:Pop_Customer_AgreementSoapIn" />
+      <wsdl:output message="tns:Pop_Customer_AgreementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Agreement_Instalments">
+      <wsdl:input message="tns:Pop_Agreement_InstalmentsSoapIn" />
+      <wsdl:output message="tns:Pop_Agreement_InstalmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_NLR_ReferenceNo">
+      <wsdl:input message="tns:Insert_NLR_ReferenceNoSoapIn" />
+      <wsdl:output message="tns:Insert_NLR_ReferenceNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Insurance_Codes">
+      <wsdl:input message="tns:Get_Insurance_CodesSoapIn" />
+      <wsdl:output message="tns:Get_Insurance_CodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_PAYD_URL">
+      <wsdl:input message="tns:Get_PAYD_URLSoapIn" />
+      <wsdl:output message="tns:Get_PAYD_URLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_Email">
+      <wsdl:input message="tns:Send_EmailSoapIn" />
+      <wsdl:output message="tns:Send_EmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification">
+      <wsdl:input message="tns:XDS_AccountVerificationSoapIn" />
+      <wsdl:output message="tns:XDS_AccountVerificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification_Result">
+      <wsdl:input message="tns:XDS_AccountVerification_ResultSoapIn" />
+      <wsdl:output message="tns:XDS_AccountVerification_ResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XDS_NLRRegistration">
+      <wsdl:input message="tns:XDS_NLRRegistrationSoapIn" />
+      <wsdl:output message="tns:XDS_NLRRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting">
+      <wsdl:input message="tns:XDS_PreVettingSoapIn" />
+      <wsdl:output message="tns:XDS_PreVettingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting_Non_Client">
+      <wsdl:input message="tns:XDS_PreVetting_Non_ClientSoapIn" />
+      <wsdl:output message="tns:XDS_PreVetting_Non_ClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validate_IdentityNo">
+      <wsdl:input message="tns:Validate_IdentityNoSoapIn" />
+      <wsdl:output message="tns:Validate_IdentityNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validate_User">
+      <wsdl:input message="tns:Validate_UserSoapIn" />
+      <wsdl:output message="tns:Validate_UserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Credit_Rating_To_Acpas">
+      <wsdl:input message="tns:Add_Credit_Rating_To_AcpasSoapIn" />
+      <wsdl:output message="tns:Add_Credit_Rating_To_AcpasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Client_Prevettings">
+      <wsdl:input message="tns:Get_Client_PrevettingsSoapIn" />
+      <wsdl:output message="tns:Get_Client_PrevettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Statement">
+      <wsdl:input message="tns:Get_Customer_StatementSoapIn" />
+      <wsdl:output message="tns:Get_Customer_StatementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Credit_Profile">
+      <wsdl:input message="tns:Get_Customer_Credit_ProfileSoapIn" />
+      <wsdl:output message="tns:Get_Customer_Credit_ProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Quotation">
+      <wsdl:input message="tns:Insert_New_QuotationSoapIn" />
+      <wsdl:output message="tns:Insert_New_QuotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Quotation">
+      <wsdl:input message="tns:Get_Customer_QuotationSoapIn" />
+      <wsdl:output message="tns:Get_Customer_QuotationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Agreement_Count">
+      <wsdl:input message="tns:Get_Customer_Agreement_CountSoapIn" />
+      <wsdl:output message="tns:Get_Customer_Agreement_CountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_Payment">
+      <wsdl:input message="tns:Insert_New_Agreement_PaymentSoapIn" />
+      <wsdl:output message="tns:Insert_New_Agreement_PaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TS_SEND_SMS">
+      <wsdl:input message="tns:TS_SEND_SMSSoapIn" />
+      <wsdl:output message="tns:TS_SEND_SMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Correlationkey">
+      <wsdl:input message="tns:Get_Customer_CorrelationkeySoapIn" />
+      <wsdl:output message="tns:Get_Customer_CorrelationkeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="externalintegrationSoap" type="tns:externalintegrationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert_New_Customer">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Customer_Information">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Customer_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Bank">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Bank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Employer">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Employer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Employer">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Employer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Affordability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability_New">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Affordability_New" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_With_Correlation">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement_With_Correlation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Agreement_Status">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_Agreement_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Status">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_MaxLoanAmount">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_MaxLoanAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Languages">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Languages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Gender">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Gender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_MaritalStatus">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_MaritalStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Payment_Report">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Payment_Report" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Countries">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Countries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_SalaryFreqencies">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_SalaryFreqencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_PaydayFormula">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_PaydayFormula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ClientStatus">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_ClientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_EmployerList">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_EmployerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Life_Insurance_Agreement">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Life_Insurance_Agreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Banks">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Banks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_VerificationReady_Banks">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_VerificationReady_Banks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_BankAccountTypes">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_BankAccountTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_AccountingCodes">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_AccountingCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_NextPayDate">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_NextPayDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do_CreditCheck">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Do_CreditCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerInfo">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomersRecent">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomersRecent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do_Customer_Exists">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Do_Customer_Exists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Balance">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Balance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreements">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerAgreements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreementsRecent">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerAgreementsRecent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Customer_Agreement">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Pop_Customer_Agreement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Agreement_Instalments">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Pop_Agreement_Instalments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_NLR_ReferenceNo">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_NLR_ReferenceNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Insurance_Codes">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Insurance_Codes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_PAYD_URL">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_PAYD_URL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Email">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Send_Email" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_AccountVerification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification_Result">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_AccountVerification_Result" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_NLRRegistration">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_NLRRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_PreVetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting_Non_Client">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_PreVetting_Non_Client" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate_IdentityNo">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Validate_IdentityNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate_User">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Validate_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Credit_Rating_To_Acpas">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Add_Credit_Rating_To_Acpas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Client_Prevettings">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Client_Prevettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Statement">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Statement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Credit_Profile">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Credit_Profile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Quotation">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Quotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Quotation">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Quotation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Agreement_Count">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Agreement_Count" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_Payment">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement_Payment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TS_SEND_SMS">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/TS_SEND_SMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Correlationkey">
+      <soap:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Correlationkey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="externalintegrationSoap12" type="tns:externalintegrationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert_New_Customer">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Customer_Information">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Customer_Information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Bank">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Bank" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Employer">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Employer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Employer">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Employer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Affordability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Customer_Affordability_New">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_Customer_Affordability_New" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_With_Correlation">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement_With_Correlation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Agreement_Status">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_Agreement_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_Status">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Client_MaxLoanAmount">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Update_Client_MaxLoanAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Languages">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Languages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Gender">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Gender" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_MaritalStatus">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_MaritalStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Payment_Report">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Payment_Report" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Countries">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Countries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_SalaryFreqencies">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_SalaryFreqencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_PaydayFormula">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_PaydayFormula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ClientStatus">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_ClientStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_EmployerList">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_EmployerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Life_Insurance_Agreement">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Life_Insurance_Agreement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Banks">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Banks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_VerificationReady_Banks">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_VerificationReady_Banks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_BankAccountTypes">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_BankAccountTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_AccountingCodes">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_AccountingCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_NextPayDate">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_NextPayDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do_CreditCheck">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Do_CreditCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerInfo">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomersRecent">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomersRecent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do_Customer_Exists">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Do_Customer_Exists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Balance">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Balance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreements">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerAgreements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CustomerAgreementsRecent">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_CustomerAgreementsRecent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Customer_Agreement">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Pop_Customer_Agreement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pop_Agreement_Instalments">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Pop_Agreement_Instalments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_NLR_ReferenceNo">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_NLR_ReferenceNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Insurance_Codes">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Insurance_Codes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_PAYD_URL">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_PAYD_URL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Email">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Send_Email" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_AccountVerification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_AccountVerification_Result">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_AccountVerification_Result" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_NLRRegistration">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_NLRRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_PreVetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XDS_PreVetting_Non_Client">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/XDS_PreVetting_Non_Client" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate_IdentityNo">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Validate_IdentityNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate_User">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Validate_User" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Credit_Rating_To_Acpas">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Add_Credit_Rating_To_Acpas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Client_Prevettings">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Client_Prevettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Statement">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Statement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Credit_Profile">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Credit_Profile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Quotation">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Quotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Quotation">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Quotation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Agreement_Count">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Agreement_Count" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_New_Agreement_Payment">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Insert_New_Agreement_Payment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TS_SEND_SMS">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/TS_SEND_SMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Customer_Correlationkey">
+      <soap12:operation soapAction="http://www.acpas.co.za/wsIntegration/externalintegration.asmx/Get_Customer_Correlationkey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="externalintegration">
+    <wsdl:port name="externalintegrationSoap" binding="tns:externalintegrationSoap">
+      <soap:address location="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="externalintegrationSoap12" binding="tns:externalintegrationSoap12">
+      <soap12:address location="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

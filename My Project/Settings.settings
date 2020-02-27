@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="IntegrationUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10FA3790-8C75-49CC-B350-1F883AB14922</Value>
+    </Setting>
+    <Setting Name="FileFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\templates\</Value>
+    </Setting>
+    <Setting Name="SwitchPayDB" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.0.12.248;Initial Catalog=SwitchPay;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.0.12.248;Initial Catalog=SwitchPay;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!</Value>
+    </Setting>
+    <Setting Name="ChildDB" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.0.12.248;Initial Catalog=SwitchPay;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.0.12.248;Initial Catalog=SwitchPay;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!</Value>
+    </Setting>
+    <Setting Name="RulesDB" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.0.12.248;Initial Catalog=RulesEngine;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.0.12.248;Initial Catalog=RulesEngine;Persist Security Info=True;User ID=switchpayadm;Password=8HtYY53B!</Value>
+    </Setting>
+    <Setting Name="WFApp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UAT</Value>
+    </Setting>
+    <Setting Name="Environment" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UAT</Value>
+    </Setting>
+    <Setting Name="Repository" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UAT</Value>
+    </Setting>
+    <Setting Name="EnvironmentID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RepositoryID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="EnvironmentRepositoryID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="URLPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://uat</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

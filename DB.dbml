@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UATSwitchPay" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.0.12.248;Initial Catalog=UATSwitchPay;Persist Security Info=True;User ID=SwitchPayadm;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SwitchPayUATConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Application" Member="Applications">
+    <Type Name="Application">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InternalAuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TerminalTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MobileNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GrossIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NettIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="FinanceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Term" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferTerm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Installment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferInstallment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Priority" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AcceptPIN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IsAuthorised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CollectPIN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IsCollected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MerchantIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TerminalIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeclineReason" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="UpdateBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Test" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsComplete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeclined" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsExpired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsArchived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Application_ApplicationFieldValue" Member="ApplicationFieldValues" ThisKey="ID" OtherKey="ApplicationID" Type="ApplicationFieldValue" />
+      <Association Name="Application_ApplicationStat" Member="ApplicationStat" ThisKey="ID" OtherKey="ID" Type="ApplicationStat" Cardinality="One" />
+      <Association Name="Application_Audit" Member="Audits" ThisKey="ID" OtherKey="ApplicationID" Type="Audit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="EnvironmentID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RepositoryID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RulesEngineID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RulesEngineDBName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MainRepository" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationFieldValue" Member="ApplicationFieldValues">
+    <Type Name="ApplicationFieldValue">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TerminalTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldDefinitionEntityID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Application_ApplicationFieldValue" Member="Application" ThisKey="ApplicationID" OtherKey="ID" Type="Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationStats" Member="ApplicationStats">
+    <Type Name="ApplicationStat">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreditCheckResult" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAuthorised" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCreditCheck" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateBankChecked" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCaptured" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateMarketing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateTerms" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstSentToBank" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateSentToBank" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferMade" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferMade" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstDeclined" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDeclined" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateApproved" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDOMandate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateContracted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCollected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentUploaded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentVerified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentReceived" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDisbursed" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCancelled" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateExpired" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Authorised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreditCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BankChecked" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Captured" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Marketing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Terms" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SentToBank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferMade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferAccepted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferRejected" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Declined" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pending" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Accepted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Rejected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DOMandate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Contracted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Collected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentUploaded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentReceived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Disbursed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Completed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateLastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Application_ApplicationStat" Member="Application" ThisKey="ID" OtherKey="ID" Type="Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Audit" Member="Audits">
+    <Type Name="Audit">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IPAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActorID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Application_Audit" Member="Application" ThisKey="ApplicationID" OtherKey="ID" Type="Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vAdditionalFields" Member="vAdditionalFields">
+    <Type Name="vAdditionalField">
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FieldTitle" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FieldValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWFApp" Member="vWFApps">
+    <Type Name="vWFApp">
+      <Column Name="ApplicationID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VirtualActorId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsActiveUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActivityDisplayName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InternalStatus" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="CurrentStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnershipDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EIStatus" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Output" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InlinkActionExecutionDetailsID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InlinkActionOutput" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LocalVariablesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExecutionEndedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QueueID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Queue" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NewItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InProgressItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompletedItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vApplications" Member="vApplications">
+    <Type Name="vApplication">
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="InternalStatusID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MobileNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FinanceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="StatusID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BankID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Merchant" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IndustryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Industry" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Minutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkingDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeclineReason" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StatusDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentMerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BankSelected" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DebitOrderReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentMerchant" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Term" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TerminalIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GrossIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NettIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferTerm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferInstallment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Test" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CPDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TerminalTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InternalStatus" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAuthorised" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateBankChecked" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCaptured" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateMarketing" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateTerms" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstSentToBank" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateSentToBank" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferMade" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferMade" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstOfferRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateFirstDeclined" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDeclined" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateApproved" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDOMandate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateContracted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCollected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentUploaded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentVerified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentReceived" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDisbursed" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCancelled" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateExpired" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Authorised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BankChecked" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Captured" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Marketing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Terms" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SentToBank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferMade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferAccepted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferRejected" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Declined" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pending" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Accepted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DOMandate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Contracted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Collected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentUploaded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentReceived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Disbursed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateLastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Completed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreditCheckResult" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateCreditCheck" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreditCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Rejected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vHistory" Member="vHistories">
+    <Type Name="vHistory">
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AuditDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IPAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vPaymentRequest" Member="vPaymentRequests">
+    <Type Name="vPaymentRequest">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MerchantName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(1001)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CurrDate" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Industry" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XDSPreVet" Member="XDSPreVets">
+    <Type Name="XDSPreVet">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CheckDeal" Method="CheckDeal">
+    <Parameter Name="AID" Parameter="aID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="CheckDealResult">
+      <Column Name="Captured" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProvOfferAccepted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BankCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Marketing" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Terms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Accepted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOMandate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contracted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Collected" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POPVerified" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentReceived" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Disbursed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Completed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Declined" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cancelled" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Test" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateStats" Method="UpdateStats">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreateDebitOrderFile" Method="CreateDebitOrderFile">
+    <Parameter Name="DebitDate" Parameter="debitDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeclineDeal" Method="DeclineDeal">
+    <Parameter Name="ApplicationID" Parameter="applicationID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateStat" Method="UpdateStat">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.fDate" Method="fDate" IsComposable="true">
+    <Parameter Name="ApplicationID" Parameter="applicationID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.DateTime" />
+  </Function>
+  <Function Name="dbo.fPriority" Method="fPriority" IsComposable="true">
+    <Parameter Name="Minutes" Parameter="minutes" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AuditTypeID" Parameter="auditTypeID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.fMinutes" Method="fMinutes" IsComposable="true">
+    <Parameter Name="ApplicationID" Parameter="applicationID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

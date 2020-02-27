@@ -1,0 +1,2075 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RulesEngine" Class="RulesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=41.79.79.235;Initial Catalog=RulesEngine;Persist Security Info=True;User ID=sa;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RulesEngineConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="CAMS.MerchantFlags" Member="MerchantFlags">
+    <Type Name="MerchantFlag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserType" Member="UserTypes">
+    <Type Name="UserType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="UserType_AuthDirectory" Member="AuthDirectories" ThisKey="ID" OtherKey="UserTypeID" Type="AuthDirectory" />
+    </Type>
+  </Table>
+  <Table Name="CAMS.NewMerchants" Member="NewMerchants">
+    <Type Name="NewMerchant">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MerchantId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TradingName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BankAccountNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Result" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Flags" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Merchant_NewMerchant" Member="Merchant" ThisKey="MerchantId" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="Merchant_NewMerchant1" Member="Merchant1" ThisKey="MerchantId" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CAMS.NewMerchantTerminals" Member="NewMerchantTerminals">
+    <Type Name="NewMerchantTerminal">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MerchantId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TerminalId" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MonthlyFee" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ApplicationType" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MerchantFee" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Term" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ActivationDate" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Result" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccountType" Member="AccountTypes">
+    <Type Name="AccountType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AccountType_MerchantBankDetail" Member="MerchantBankDetails" ThisKey="ID" OtherKey="AccountTypeID" Type="MerchantBankDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Action" Member="Actions">
+    <Type Name="Action">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RaisesAlert" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Action_ApplicationRepositoryHistory" Member="ApplicationRepositoryHistories" ThisKey="ID" OtherKey="ActionID" Type="ApplicationRepositoryHistory" />
+      <Association Name="AuthDirectory_Action" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Action1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Agent" Member="Agents">
+    <Type Name="Agent">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="Agent_Merchant" Member="Merchants" ThisKey="ID" OtherKey="AgentID" Type="Merchant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationCreditProvider" Member="ApplicationCreditProviders">
+    <Type Name="ApplicationCreditProvider">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateSent" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferMade" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfferRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateApproved" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateDeclined" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAccepted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateRejected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateContracted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCompleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCancelled" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateExpired" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentUploaded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentVerified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaymentReceived" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OfferMade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OfferAccepted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OfferRejected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Declined" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Accepted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Rejected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Contracted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentUploaded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentReceived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Completed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Pending" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateLastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Database_ApplicationCreditProvider" Member="Database" ThisKey="DatabaseID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_ApplicationCreditProvider" Member="FinancialInstitution" ThisKey="CreditProviderID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationRepository" Member="ApplicationRepositories">
+    <Type Name="ApplicationRepository">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InternalAuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TerminalTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MobileNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GrossIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NettIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="FinanceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Term" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfferTerm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Installment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OfferInstallment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Priority" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TerminalIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeclineReason" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Test" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsAuthorised" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCollected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsComplete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeclined" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsExpired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsArchived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ApplicationRepository_ApplicationRepositoryHistory" Member="ApplicationRepositoryHistories" ThisKey="ID,DatabaseID" OtherKey="ApplicationID,DatabaseID" Type="ApplicationRepositoryHistory" />
+      <Association Name="ApplicationRepository_DebitOrderHistory" Member="DebitOrderHistories" ThisKey="ID,DatabaseID" OtherKey="ApplicationID,DatabaseID" Type="DebitOrderHistory" />
+      <Association Name="AuditType_ApplicationRepository" Member="AuditType" ThisKey="InternalAuditTypeID" OtherKey="ID" Type="AuditType" IsForeignKey="true" />
+      <Association Name="AuditType_ApplicationRepository1" Member="AuditType1" ThisKey="AuditTypeID" OtherKey="ID" Type="AuditType" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ApplicationRepository" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ApplicationRepository1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Channel_ApplicationRepository" Member="Channel" ThisKey="ChannelID" OtherKey="ID" Type="Channel" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_ApplicationRepository" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_ApplicationRepository" Member="FinancialInstitution" ThisKey="CreditProviderID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_ApplicationRepository1" Member="FinancialInstitution1" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_ApplicationRepository" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_ApplicationRepository" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+      <Association Name="Product_ApplicationRepository" Member="Product" ThisKey="ProductID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+      <Association Name="TerminalType_ApplicationRepository" Member="TerminalType" ThisKey="TerminalTypeID" OtherKey="ID" Type="TerminalType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationRepositoryHistory" Member="ApplicationRepositoryHistories">
+    <Type Name="ApplicationRepositoryHistory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Actor" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ActionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HistoryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Action_ApplicationRepositoryHistory" Member="Action" ThisKey="ActionID" OtherKey="ID" Type="Action" IsForeignKey="true" />
+      <Association Name="ApplicationRepository_ApplicationRepositoryHistory" Member="ApplicationRepository" ThisKey="ApplicationID,DatabaseID" OtherKey="ID,DatabaseID" Type="ApplicationRepository" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ApplicationRepositoryHistory" Member="AuthDirectory" ThisKey="Actor" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditType" Member="AuditTypes">
+    <Type Name="AuditType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CPDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expire" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Approval" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Decline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Cancel" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UpdateRulesEngine" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuditType_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="InternalAuditTypeID" Type="ApplicationRepository" />
+      <Association Name="AuditType_ApplicationRepository1" Member="ApplicationRepositories1" ThisKey="ID" OtherKey="AuditTypeID" Type="ApplicationRepository" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuthDirectory" Member="AuthDirectories">
+    <Type Name="AuthDirectory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RemoteID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MobileNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserTypeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_Action" Member="Actions" ThisKey="ID" OtherKey="CreatedBy" Type="Action" />
+      <Association Name="AuthDirectory_Action1" Member="Actions1" ThisKey="ID" OtherKey="UpdatedBy" Type="Action" />
+      <Association Name="AuthDirectory_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="CreatedBy" Type="ApplicationRepository" />
+      <Association Name="AuthDirectory_ApplicationRepository1" Member="ApplicationRepositories1" ThisKey="ID" OtherKey="UpdatedBy" Type="ApplicationRepository" />
+      <Association Name="AuthDirectory_ApplicationRepositoryHistory" Member="ApplicationRepositoryHistories" ThisKey="ID" OtherKey="Actor" Type="ApplicationRepositoryHistory" />
+      <Association Name="AuthDirectory_AuthDirectory" Member="AuthDirectories" ThisKey="ID" OtherKey="CreatedBy" Type="AuthDirectory" />
+      <Association Name="AuthDirectory_AuthDirectory1" Member="AuthDirectories1" ThisKey="ID" OtherKey="UpdatedBy" Type="AuthDirectory" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository" Member="AuthDirectoryRepositories" ThisKey="ID" OtherKey="CreatedBy" Type="AuthDirectoryRepository" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository1" Member="AuthDirectoryRepositories1" ThisKey="ID" OtherKey="UpdatedBy" Type="AuthDirectoryRepository" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository2" Member="AuthDirectoryRepositories2" ThisKey="ID" OtherKey="AuthDirectoryID" Type="AuthDirectoryRepository" />
+      <Association Name="AuthDirectory_Component" Member="Components" ThisKey="ID" OtherKey="CreatedBy" Type="Component" />
+      <Association Name="AuthDirectory_Component1" Member="Components1" ThisKey="ID" OtherKey="UpdatedBy" Type="Component" />
+      <Association Name="AuthDirectory_ComponentHistory" Member="ComponentHistories" ThisKey="ID" OtherKey="Actor" Type="ComponentHistory" />
+      <Association Name="AuthDirectory_ComponentHistoryType" Member="ComponentHistoryTypes" ThisKey="ID" OtherKey="CreatedBy" Type="ComponentHistoryType" />
+      <Association Name="AuthDirectory_ComponentHistoryType1" Member="ComponentHistoryTypes1" ThisKey="ID" OtherKey="UpdatedBy" Type="ComponentHistoryType" />
+      <Association Name="AuthDirectory_CreditProviderMerchant" Member="CreditProviderMerchants" ThisKey="ID" OtherKey="CreatedBy" Type="CreditProviderMerchant" />
+      <Association Name="AuthDirectory_CreditProviderMerchant1" Member="CreditProviderMerchants1" ThisKey="ID" OtherKey="UpdatedBy" Type="CreditProviderMerchant" />
+      <Association Name="AuthDirectory_Database" Member="Databases" ThisKey="ID" OtherKey="AuthDirectoryID" Type="Database" />
+      <Association Name="AuthDirectory_Database1" Member="Databases1" ThisKey="ID" OtherKey="AuthDirectoryID" Type="Database" />
+      <Association Name="AuthDirectory_Database2" Member="Databases2" ThisKey="ID" OtherKey="UpdatedBy" Type="Database" />
+      <Association Name="AuthDirectory_DatabaseType" Member="DatabaseTypes" ThisKey="ID" OtherKey="CreatedBy" Type="DatabaseType" />
+      <Association Name="AuthDirectory_DatabaseType1" Member="DatabaseTypes1" ThisKey="ID" OtherKey="UpdatedBy" Type="DatabaseType" />
+      <Association Name="AuthDirectory_Environment" Member="Environments" ThisKey="ID" OtherKey="AdminUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment1" Member="Environments1" ThisKey="ID" OtherKey="CreatedBy" Type="Environment" />
+      <Association Name="AuthDirectory_Environment2" Member="Environments2" ThisKey="ID" OtherKey="CompuscanUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment3" Member="Environments3" ThisKey="ID" OtherKey="VodacomUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment4" Member="Environments4" ThisKey="ID" OtherKey="ConnectMobileNIUSSDUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment5" Member="Environments5" ThisKey="ID" OtherKey="ConnectMobileSMSUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment6" Member="Environments6" ThisKey="ID" OtherKey="FirstEscalationUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment7" Member="Environments7" ThisKey="ID" OtherKey="IntegrationUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment8" Member="Environments8" ThisKey="ID" OtherKey="SecondEscalationUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment9" Member="Environments9" ThisKey="ID" OtherKey="ServiceUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment10" Member="Environments10" ThisKey="ID" OtherKey="SwitchPayUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment11" Member="Environments11" ThisKey="ID" OtherKey="UpdatedBy" Type="Environment" />
+      <Association Name="AuthDirectory_Environment12" Member="Environments12" ThisKey="ID" OtherKey="ACPASUserID" Type="Environment" />
+      <Association Name="AuthDirectory_Environment13" Member="Environments13" ThisKey="ID" OtherKey="VodacomUserID" Type="Environment" />
+      <Association Name="AuthDirectory_EnvironmentRepository" Member="EnvironmentRepositories" ThisKey="ID" OtherKey="CreatedBy" Type="EnvironmentRepository" />
+      <Association Name="AuthDirectory_EnvironmentRepository1" Member="EnvironmentRepositories1" ThisKey="ID" OtherKey="UpdatedBy" Type="EnvironmentRepository" />
+      <Association Name="AuthDirectory_FinancialInstitution" Member="FinancialInstitutions" ThisKey="ID" OtherKey="CreatedBy" Type="FinancialInstitution" />
+      <Association Name="AuthDirectory_FinancialInstitution1" Member="FinancialInstitutions1" ThisKey="ID" OtherKey="UpdatedBy" Type="FinancialInstitution" />
+      <Association Name="AuthDirectory_FinancialInstitution2" Member="FinancialInstitutions2" ThisKey="ID" OtherKey="PrimaryUser" Type="FinancialInstitution" />
+      <Association Name="AuthDirectory_Merchant" Member="Merchants" ThisKey="ID" OtherKey="CreatedBy" Type="Merchant" />
+      <Association Name="AuthDirectory_Merchant1" Member="Merchants1" ThisKey="ID" OtherKey="UpdatedBy" Type="Merchant" />
+      <Association Name="AuthDirectory_Merchant2" Member="Merchants2" ThisKey="ID" OtherKey="AuthDirectoryID" Type="Merchant" />
+      <Association Name="AuthDirectory_MerchantBankDetail" Member="MerchantBankDetails" ThisKey="ID" OtherKey="CreatedBy" Type="MerchantBankDetail" />
+      <Association Name="AuthDirectory_MerchantBankDetail1" Member="MerchantBankDetails1" ThisKey="ID" OtherKey="UpdatedBy" Type="MerchantBankDetail" />
+      <Association Name="AuthDirectory_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="CreatedBy" Type="MerchantDetail" />
+      <Association Name="AuthDirectory_MerchantDetail1" Member="MerchantDetails1" ThisKey="ID" OtherKey="UpdatedBy" Type="MerchantDetail" />
+      <Association Name="AuthDirectory_MerchantHistory" Member="MerchantHistories" ThisKey="ID" OtherKey="Actor" Type="MerchantHistory" />
+      <Association Name="AuthDirectory_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="CreatedBy" Type="MerchantTerminal" />
+      <Association Name="AuthDirectory_MerchantTerminal1" Member="MerchantTerminals1" ThisKey="ID" OtherKey="UpdatedBy" Type="MerchantTerminal" />
+      <Association Name="AuthDirectory_Metric" Member="Metrics" ThisKey="ID" OtherKey="CreatedBy" Type="Metric" />
+      <Association Name="AuthDirectory_Metric1" Member="Metrics1" ThisKey="ID" OtherKey="UpdatedBy" Type="Metric" />
+      <Association Name="AuthDirectory_OTPType" Member="OTPTypes" ThisKey="ID" OtherKey="CreatedBy" Type="OTPType" />
+      <Association Name="AuthDirectory_OTPType1" Member="OTPTypes1" ThisKey="ID" OtherKey="UpdatedBy" Type="OTPType" />
+      <Association Name="AuthDirectory_Product" Member="Products" ThisKey="ID" OtherKey="CreatedBy" Type="Product" />
+      <Association Name="AuthDirectory_Product1" Member="Products1" ThisKey="ID" OtherKey="UpdatedBy" Type="Product" />
+      <Association Name="AuthDirectory_ProductBand" Member="ProductBands" ThisKey="ID" OtherKey="CreatedBy" Type="ProductBand" />
+      <Association Name="AuthDirectory_ProductBand1" Member="ProductBands1" ThisKey="ID" OtherKey="UpdatedBy" Type="ProductBand" />
+      <Association Name="AuthDirectory_TerminalMetric" Member="TerminalMetrics" ThisKey="ID" OtherKey="CreatedBy" Type="TerminalMetric" />
+      <Association Name="AuthDirectory_TerminalMetric1" Member="TerminalMetrics1" ThisKey="ID" OtherKey="UpdatedBy" Type="TerminalMetric" />
+      <Association Name="AuthDirectory_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="CreatedBy" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_TerminalProduct1" Member="TerminalProducts1" ThisKey="ID" OtherKey="UpdatedBy" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_TerminalType" Member="TerminalTypes" ThisKey="ID" OtherKey="UpdatedBy" Type="TerminalType" />
+      <Association Name="AuthDirectory_TerminalType1" Member="TerminalTypes1" ThisKey="ID" OtherKey="CreatedBy" Type="TerminalType" />
+      <Association Name="AuthDirectory_Repository" Member="Repositories" ThisKey="ID" OtherKey="AdminUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository1" Member="Repositories1" ThisKey="ID" OtherKey="CreatedBy" Type="Repository" />
+      <Association Name="AuthDirectory_Repository2" Member="Repositories2" ThisKey="ID" OtherKey="ConnectMobileNIUSSDUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository3" Member="Repositories3" ThisKey="ID" OtherKey="ConnectMobileSMSUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository4" Member="Repositories4" ThisKey="ID" OtherKey="VodacomUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository5" Member="Repositories5" ThisKey="ID" OtherKey="FirstEscalationUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository6" Member="Repositories6" ThisKey="ID" OtherKey="IntegrationUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository7" Member="Repositories7" ThisKey="ID" OtherKey="SecondEscalationUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository8" Member="Repositories8" ThisKey="ID" OtherKey="ServiceUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository9" Member="Repositories9" ThisKey="ID" OtherKey="SwitchPayUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository10" Member="Repositories10" ThisKey="ID" OtherKey="UpdatedBy" Type="Repository" />
+      <Association Name="AuthDirectory_Repository11" Member="Repositories11" ThisKey="ID" OtherKey="ACPASUserID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository12" Member="Repositories12" ThisKey="ID" OtherKey="CompuscanUserID" Type="Repository" />
+      <Association Name="AuthDirectory_AuthDirectory" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_AuthDirectory1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="UserType_AuthDirectory" Member="UserType" ThisKey="UserTypeID" OtherKey="ID" Type="UserType" IsForeignKey="true" />
+      <Association Name="Repository_AuthDirectory" Member="Repository" ThisKey="RepositoryID" OtherKey="ID" Type="Repository" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuthDirectoryRepository" Member="AuthDirectoryRepositories">
+    <Type Name="AuthDirectoryRepository">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuthDirectoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RemoteID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="RepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_AuthDirectoryRepository2" Member="AuthDirectory2" ThisKey="AuthDirectoryID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Repository_AuthDirectoryRepository" Member="Repository" ThisKey="RepositoryID" OtherKey="ID" Type="Repository" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BandType" Member="BandTypes">
+    <Type Name="BandType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="BandType_ProductBand" Member="ProductBands" ThisKey="ID" OtherKey="BandTypeID" Type="ProductBand" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bureau" Member="Bureaus">
+    <Type Name="Bureau">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreditScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoOfJudgments" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoOfDefaults" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoOfArrears" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurrentObligations" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OutcomeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessSize" Member="BusinessSizes">
+    <Type Name="BusinessSize">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="BusinessSize_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="BusinessSizeID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessStructure" Member="BusinessStructures">
+    <Type Name="BusinessStructure">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="BusinessStructure_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="BusinessStructureID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Channel" Member="Channels">
+    <Type Name="Channel">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Channel_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="ChannelID" Type="ApplicationRepository" />
+      <Association Name="Channel_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="ChannelID" Type="MerchantTerminal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.City" Member="Cities">
+    <Type Name="City">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ProvinceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBY" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Province_City" Member="Province" ThisKey="ProvinceID" OtherKey="ID" Type="Province" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CollectionStatus" Member="CollectionStatus">
+    <Type Name="CollectionStatus">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Component" Member="Components">
+    <Type Name="Component">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="TableName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Component_ComponentHistory" Member="ComponentHistories" ThisKey="ID" OtherKey="ComponentID" Type="ComponentHistory" />
+      <Association Name="AuthDirectory_Component" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Component1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ComponentHistory" Member="ComponentHistories">
+    <Type Name="ComponentHistory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Actor" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ComponentHistoryTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ComponentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PKID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateActioned" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Component_ComponentHistory" Member="Component" ThisKey="ComponentID" OtherKey="ID" Type="Component" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ComponentHistory" Member="AuthDirectory" ThisKey="Actor" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="ComponentHistoryType_ComponentHistory" Member="ComponentHistoryType" ThisKey="ComponentHistoryTypeID" OtherKey="ID" Type="ComponentHistoryType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ComponentHistoryType" Member="ComponentHistoryTypes">
+    <Type Name="ComponentHistoryType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ComponentHistoryType_ComponentHistory" Member="ComponentHistories" ThisKey="ID" OtherKey="ComponentHistoryTypeID" Type="ComponentHistory" />
+      <Association Name="AuthDirectory_ComponentHistoryType" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ComponentHistoryType1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContractTerm" Member="ContractTerms">
+    <Type Name="ContractTerm">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ContractTerm_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="ContractTermID" Type="MerchantTerminal" />
+      <Association Name="ContractTerm_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="ContractTermID" Type="TerminalProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditProviderAuditType" Member="CreditProviderAuditTypes">
+    <Type Name="CreditProviderAuditType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AuditTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditProviderMerchant" Member="CreditProviderMerchants">
+    <Type Name="CreditProviderMerchant">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_CreditProviderMerchant" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_CreditProviderMerchant1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_CreditProviderMerchant" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_CreditProviderMerchant" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Database]" Member="Databases">
+    <Type Name="Database">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DBName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IPAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DNS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AuthDirectoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DatabaseTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Database_ApplicationCreditProvider" Member="ApplicationCreditProviders" ThisKey="ID" OtherKey="DatabaseID" Type="ApplicationCreditProvider" />
+      <Association Name="Database_Environment" Member="Environments" ThisKey="ID" OtherKey="MainDatabaseID" Type="Environment" />
+      <Association Name="Database_Environment1" Member="Environments1" ThisKey="ID" OtherKey="RulesEngineDBID" Type="Environment" />
+      <Association Name="Database_Repository" Member="Repositories" ThisKey="ID" OtherKey="DatabaseID" Type="Repository" />
+      <Association Name="Database_Repository1" Member="Repositories1" ThisKey="ID" OtherKey="MainDatabaseID" Type="Repository" />
+      <Association Name="Database_Repository2" Member="Repositories2" ThisKey="ID" OtherKey="RulesEngineDBID" Type="Repository" />
+      <Association Name="Database_Repository3" Member="Repositories3" ThisKey="ID" OtherKey="RepositoryDatabaseID" Type="Repository" />
+      <Association Name="AuthDirectory_Database" Member="AuthDirectory" ThisKey="AuthDirectoryID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Database1" Member="AuthDirectory1" ThisKey="AuthDirectoryID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Database2" Member="AuthDirectory2" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DatabaseType" Member="DatabaseTypes">
+    <Type Name="DatabaseType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_DatabaseType" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_DatabaseType1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DebitOrder" Member="DebitOrders">
+    <Type Name="DebitOrder">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DebitOrderTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BranchName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BranchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountHolder" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Requested" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Successful" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="DebitOrder_DebitOrderHistory" Member="DebitOrderHistories" ThisKey="ID" OtherKey="DebitOrderID" Type="DebitOrderHistory" />
+      <Association Name="DebitOrderType_DebitOrder" Member="DebitOrderType" ThisKey="DebitOrderTypeID" OtherKey="ID" Type="DebitOrderType" IsForeignKey="true" />
+      <Association Name="Merchant_DebitOrder" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_DebitOrder" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DebitOrderFile" Member="DebitOrderFiles">
+    <Type Name="DebitOrderFile">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DebitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DebitOrderFile_DebitOrderFileItem" Member="DebitOrderFileItems" ThisKey="ID" OtherKey="DebitOrderFileID" Type="DebitOrderFileItem" />
+      <Association Name="DebitOrderFile_Invoice" Member="Invoices" ThisKey="ID" OtherKey="DebitOrderFileID" Type="Invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DebitOrderFileItems" Member="DebitOrderFileItems">
+    <Type Name="DebitOrderFileItem">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DebitOrderFileID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DebitOrderHistoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="DebitOrderFile_DebitOrderFileItem" Member="DebitOrderFile" ThisKey="DebitOrderFileID" OtherKey="ID" Type="DebitOrderFile" IsForeignKey="true" />
+      <Association Name="DebitOrderHistory_DebitOrderFileItem" Member="DebitOrderHistory" ThisKey="DebitOrderHistoryID" OtherKey="ID" Type="DebitOrderHistory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DebitOrderHistory" Member="DebitOrderHistories">
+    <Type Name="DebitOrderHistory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AwaitingRelease" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Released" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Switchpay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DebitOrderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DebitOrderTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DebitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePrepared" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateReleased" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BranchName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BranchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountHolder" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="DebitOrderHistory_DebitOrderFileItem" Member="DebitOrderFileItems" ThisKey="ID" OtherKey="DebitOrderHistoryID" Type="DebitOrderFileItem" />
+      <Association Name="DebitOrderHistory_Invoice" Member="Invoices" ThisKey="ID" OtherKey="DebitOrderHistoryID" Type="Invoice" />
+      <Association Name="ApplicationRepository_DebitOrderHistory" Member="ApplicationRepository" ThisKey="ApplicationID,DatabaseID" OtherKey="ID,DatabaseID" Type="ApplicationRepository" IsForeignKey="true" />
+      <Association Name="DebitOrder_DebitOrderHistory" Member="DebitOrder" ThisKey="DebitOrderID" OtherKey="ID" Type="DebitOrder" IsForeignKey="true" />
+      <Association Name="DebitOrderType_DebitOrderHistory" Member="DebitOrderType" ThisKey="DebitOrderTypeID" OtherKey="ID" Type="DebitOrderType" IsForeignKey="true" />
+      <Association Name="Merchant_DebitOrderHistory" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_DebitOrderHistory" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DebitOrderType" Member="DebitOrderTypes">
+    <Type Name="DebitOrderType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DebitOrderType_DebitOrder" Member="DebitOrders" ThisKey="ID" OtherKey="DebitOrderTypeID" Type="DebitOrder" />
+      <Association Name="DebitOrderType_DebitOrderHistory" Member="DebitOrderHistories" ThisKey="ID" OtherKey="DebitOrderTypeID" Type="DebitOrderHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeclineReason" Member="DeclineReasons">
+    <Type Name="DeclineReason">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Designation" Member="Designations">
+    <Type Name="Designation">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Designation_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="DesignationID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Environment" Member="Environments">
+    <Type Name="Environment">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="URLPrefix" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WebLinkURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="APIURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PortalURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="USSDURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ImagesURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SecondaryProcessURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InternalWebAPIURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ExternalWebAPIURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACPASURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CompuScanURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VodacomHTTPURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VodacomSOAPURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VodacomRESTURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileNIUSSDURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileSMSURLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MainDatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RulesEngineDBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MainRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MainEnvironmentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EnvironmentTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DefaultIDNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultMobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DefaultBank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultOTP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ServiceUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SwitchPayUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AdminUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IntegrationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FirstEscalationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SecondEscalationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACPASUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CompuscanUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VodacomUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileSMSUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileNIUSSDUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Environment_Environment" Member="Environments" ThisKey="ID" OtherKey="MainEnvironmentID" Type="Environment" />
+      <Association Name="Environment_EnvironmentRepository" Member="EnvironmentRepositories" ThisKey="ID" OtherKey="EnvironmentID" Type="EnvironmentRepository" />
+      <Association Name="AuthDirectory_Environment" Member="AuthDirectory" ThisKey="AdminUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment1" Member="AuthDirectory1" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment2" Member="AuthDirectory2" ThisKey="CompuscanUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment3" Member="AuthDirectory3" ThisKey="VodacomUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment4" Member="AuthDirectory4" ThisKey="ConnectMobileNIUSSDUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment5" Member="AuthDirectory5" ThisKey="ConnectMobileSMSUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment6" Member="AuthDirectory6" ThisKey="FirstEscalationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment7" Member="AuthDirectory7" ThisKey="IntegrationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment8" Member="AuthDirectory8" ThisKey="SecondEscalationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment9" Member="AuthDirectory9" ThisKey="ServiceUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment10" Member="AuthDirectory10" ThisKey="SwitchPayUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment11" Member="AuthDirectory11" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment12" Member="AuthDirectory12" ThisKey="ACPASUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Environment13" Member="AuthDirectory13" ThisKey="VodacomUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Database_Environment" Member="Database" ThisKey="MainDatabaseID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Database_Environment1" Member="Database1" ThisKey="RulesEngineDBID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Environment_Environment" Member="Environment" ThisKey="MainEnvironmentID" OtherKey="ID" Type="Environment" IsForeignKey="true" />
+      <Association Name="EnvironmentType_Environment" Member="EnvironmentType" ThisKey="EnvironmentTypeID" OtherKey="ID" Type="EnvironmentType" IsForeignKey="true" />
+      <Association Name="URL_Environment" Member="URL" ThisKey="APIURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment1" Member="URL1" ThisKey="ExternalWebAPIURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment2" Member="URL2" ThisKey="VodacomHTTPURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment3" Member="URL3" ThisKey="VodacomRESTURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment4" Member="URL4" ThisKey="VodacomSOAPURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment5" Member="URL5" ThisKey="ConnectMobileNIUSSDURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment6" Member="URL6" ThisKey="ConnectMobileSMSURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment7" Member="URL7" ThisKey="ImagesURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment8" Member="URL8" ThisKey="InternalWebAPIURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment9" Member="URL9" ThisKey="PortalURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment10" Member="URL10" ThisKey="SecondaryProcessURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment11" Member="URL11" ThisKey="USSDURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment12" Member="URL12" ThisKey="WebLinkURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment13" Member="URL13" ThisKey="ACPASURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="URL_Environment14" Member="URL14" ThisKey="CompuScanURLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+      <Association Name="Repository_Environment" Member="Repository" ThisKey="MainRepositoryID" OtherKey="ID" Type="Repository" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EnvironmentRepository" Member="EnvironmentRepositories">
+    <Type Name="EnvironmentRepository">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EnvironmentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EnvironmentRepository_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="ApplicationRepository" />
+      <Association Name="EnvironmentRepository_Merchant" Member="Merchants" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="Merchant" />
+      <Association Name="EnvironmentRepository_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="MerchantTerminal" />
+      <Association Name="EnvironmentRepository_MerchantTerminal1" Member="MerchantTerminals1" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="MerchantTerminal" />
+      <Association Name="EnvironmentRepository_Product" Member="Products" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="Product" />
+      <Association Name="EnvironmentRepository_Product1" Member="Products1" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="Product" />
+      <Association Name="EnvironmentRepository_ProductBand" Member="ProductBands" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="ProductBand" />
+      <Association Name="EnvironmentRepository_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="EnvironmentRepositoryID" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_EnvironmentRepository" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_EnvironmentRepository1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Environment_EnvironmentRepository" Member="Environment" ThisKey="EnvironmentID" OtherKey="ID" Type="Environment" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_EnvironmentRepository" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_EnvironmentRepository" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="Repository_EnvironmentRepository" Member="Repository" ThisKey="RepositoryID" OtherKey="ID" Type="Repository" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EnvironmentType" Member="EnvironmentTypes">
+    <Type Name="EnvironmentType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EnvironmentType_Environment" Member="Environments" ThisKey="ID" OtherKey="EnvironmentTypeID" Type="Environment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldCategory" Member="FieldCategories">
+    <Type Name="FieldCategory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldCategory_FieldCategoryEntity" Member="FieldCategoryEntities" ThisKey="ID" OtherKey="FieldCategoryID" Type="FieldCategoryEntity" />
+      <Association Name="FieldCategory_FieldDefinition" Member="FieldDefinitions" ThisKey="ID" OtherKey="FieldCategoryID" Type="FieldDefinition" />
+      <Association Name="FieldCategory_FieldDefinitionEntity" Member="FieldDefinitionEntities" ThisKey="ID" OtherKey="FieldCategoryID" Type="FieldDefinitionEntity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldCategoryEntity" Member="FieldCategoryEntities">
+    <Type Name="FieldCategoryEntity">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldCategoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldCategory_FieldCategoryEntity" Member="FieldCategory" ThisKey="FieldCategoryID" OtherKey="ID" Type="FieldCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldDefinition" Member="FieldDefinitions">
+    <Type Name="FieldDefinition">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FieldCategoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RegEx" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultValue" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldDefinition_FieldDefinitionEntity" Member="FieldDefinitionEntities" ThisKey="ID" OtherKey="FieldDefinitionID" Type="FieldDefinitionEntity" />
+      <Association Name="FieldDefinition_FieldOption" Member="FieldOptions" ThisKey="ID" OtherKey="FieldDefinitionID" Type="FieldOption" />
+      <Association Name="FieldCategory_FieldDefinition" Member="FieldCategory" ThisKey="FieldCategoryID" OtherKey="ID" Type="FieldCategory" IsForeignKey="true" />
+      <Association Name="FieldType_FieldDefinition" Member="FieldType" ThisKey="FieldTypeID" OtherKey="ID" Type="FieldType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldDefinitionEntity" Member="FieldDefinitionEntities">
+    <Type Name="FieldDefinitionEntity">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreditProviderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldCategoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FieldDefinitionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Header" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RegEx" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultValue" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldCategory_FieldDefinitionEntity" Member="FieldCategory" ThisKey="FieldCategoryID" OtherKey="ID" Type="FieldCategory" IsForeignKey="true" />
+      <Association Name="FieldDefinition_FieldDefinitionEntity" Member="FieldDefinition" ThisKey="FieldDefinitionID" OtherKey="ID" Type="FieldDefinition" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldOption" Member="FieldOptions">
+    <Type Name="FieldOption">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FieldDefinitionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Code" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldDefinition_FieldOption" Member="FieldDefinition" ThisKey="FieldDefinitionID" OtherKey="ID" Type="FieldDefinition" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FieldType" Member="FieldTypes">
+    <Type Name="FieldType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DataType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ClassName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FieldType_FieldDefinition" Member="FieldDefinitions" ThisKey="ID" OtherKey="FieldTypeID" Type="FieldDefinition" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FinancialInstitution" Member="FinancialInstitutions">
+    <Type Name="FinancialInstitution">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PrimaryUser" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsCreditProvider" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOnBankList" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDForTerminal" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDForBankList" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsOnTerminalList" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FinancialInstitution_ApplicationCreditProvider" Member="ApplicationCreditProviders" ThisKey="ID" OtherKey="CreditProviderID" Type="ApplicationCreditProvider" />
+      <Association Name="FinancialInstitution_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="CreditProviderID" Type="ApplicationRepository" />
+      <Association Name="FinancialInstitution_ApplicationRepository1" Member="ApplicationRepositories1" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="ApplicationRepository" />
+      <Association Name="FinancialInstitution_CreditProviderMerchant" Member="CreditProviderMerchants" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="CreditProviderMerchant" />
+      <Association Name="FinancialInstitution_EnvironmentRepository" Member="EnvironmentRepositories" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="EnvironmentRepository" />
+      <Association Name="FinancialInstitution_MerchantBankDetail" Member="MerchantBankDetails" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="MerchantBankDetail" />
+      <Association Name="FinancialInstitution_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="MerchantTerminal" />
+      <Association Name="FinancialInstitution_Product" Member="Products" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="Product" />
+      <Association Name="FinancialInstitution_ProductBand" Member="ProductBands" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="ProductBand" />
+      <Association Name="FinancialInstitution_Supplier" Member="Suppliers" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="Supplier" />
+      <Association Name="FinancialInstitution_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="FinancialInstitutionID" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_FinancialInstitution" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_FinancialInstitution1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_FinancialInstitution2" Member="AuthDirectory2" ThisKey="PrimaryUser" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Footprint" Member="Footprints">
+    <Type Name="Footprint">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Footprint_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="FootprintID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HistoryType" Member="HistoryTypes">
+    <Type Name="HistoryType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CausesNotification" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsBankStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.importmerchant" Member="importmerchants">
+    <Type Name="importmerchant">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FileNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PBLM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PBLMAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LayBy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LayByAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NonEMVDevice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NonEMVDeviceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="EFTPOS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EFTPOSAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AcquiringBank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TypeOfAccount" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EntityType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="OtherEntity" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RegisteredName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RegisteredNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AdditionalValueAdded" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="VAT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TelNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PrimaryContactPerson" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PrimaryContactNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BillingEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CompanyAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhysicalSuburb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PhysicalCode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PhysicalCity" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PhysicalProvince" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PostalAdress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PostalSuburb" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PostalCity" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PostalProvince" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TypeOfBusiness" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TypeOfProductService" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Footprint" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BusinessStructure" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TotalBranches" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HearAboutSP" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HearOther" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Bank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Branch" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BranchNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccountHolderName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="MID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DebitOrderReference" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BillingFirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PrimaryLastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PrimaryEmail" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EFTDeviceSupplier" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BillingLastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BillingMobile" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PBLSerialNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EFTVASLayerSerialNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TotalTrustees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YearsInBusiness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MothsInBusiness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EFTPOSPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Term8" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Term9" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Term10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NonEFTDevicePeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LayByPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PBLMPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MerchantCommission" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="MerchantLaybyDeposit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PBLMFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LBMFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ActivationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ApplicationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LayByDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EFTPOSDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NonEFTDevuceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PBLMDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsTrusteeJuristicPerson" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsPostalDifferent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ParentMerchantBankDetails" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ParentMerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ParentMerchant" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesChannel" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Agent" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MerchantLogo" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Processed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Transferred" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Industry" Member="Industries">
+    <Type Name="Industry">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Industry_Merchant" Member="Merchants" ThisKey="ID" OtherKey="IndustryID" Type="Merchant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VAT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Total" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DebitOrderFileID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SubsNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubsText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ActivationText" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SubsAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ActivationAmount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POBox" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DebitOrderHistoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Generated" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VatNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateGenerated" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DebitOrderFile_Invoice" Member="DebitOrderFile" ThisKey="DebitOrderFileID" OtherKey="ID" Type="DebitOrderFile" IsForeignKey="true" />
+      <Association Name="DebitOrderHistory_Invoice" Member="DebitOrderHistory" ThisKey="DebitOrderHistoryID" OtherKey="ID" Type="DebitOrderHistory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Merchant" Member="Merchants">
+    <Type Name="Merchant">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ParentMerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AuthDirectoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RegisteredNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AgentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SalesChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TypeOfBusinessID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TypeOfBusinessOther" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="IndustryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DefaultIDNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultMobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DefaultBank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultOTP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Merchant_NewMerchant" Member="NewMerchants" ThisKey="ID" OtherKey="MerchantId" Type="NewMerchant" />
+      <Association Name="Merchant_NewMerchant1" Member="NewMerchants1" ThisKey="ID" OtherKey="MerchantId" Type="NewMerchant" />
+      <Association Name="Merchant_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="MerchantID" Type="ApplicationRepository" />
+      <Association Name="Merchant_CreditProviderMerchant" Member="CreditProviderMerchants" ThisKey="ID" OtherKey="MerchantID" Type="CreditProviderMerchant" />
+      <Association Name="Merchant_DebitOrder" Member="DebitOrders" ThisKey="ID" OtherKey="MerchantID" Type="DebitOrder" />
+      <Association Name="Merchant_DebitOrderHistory" Member="DebitOrderHistories" ThisKey="ID" OtherKey="MerchantID" Type="DebitOrderHistory" />
+      <Association Name="Merchant_EnvironmentRepository" Member="EnvironmentRepositories" ThisKey="ID" OtherKey="MerchantID" Type="EnvironmentRepository" />
+      <Association Name="Merchant_Merchant" Member="Merchants" ThisKey="ID" OtherKey="ParentMerchantID" Type="Merchant" />
+      <Association Name="Merchant_MerchantBankDetail" Member="MerchantBankDetails" ThisKey="ID" OtherKey="MerchantID" Type="MerchantBankDetail" />
+      <Association Name="Merchant_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="MerchantID" Type="MerchantDetail" />
+      <Association Name="Merchant_MerchantHistory" Member="MerchantHistories" ThisKey="ID" OtherKey="MerchantID" Type="MerchantHistory" />
+      <Association Name="Merchant_MerchantProductProvider" Member="MerchantProductProviders" ThisKey="ID" OtherKey="MerchantID" Type="MerchantProductProvider" />
+      <Association Name="Merchant_MerchantProductProvider1" Member="MerchantProductProviders1" ThisKey="ID" OtherKey="MerchantID" Type="MerchantProductProvider" />
+      <Association Name="Merchant_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="MerchantID" Type="MerchantTerminal" />
+      <Association Name="Merchant_Product" Member="Products" ThisKey="ID" OtherKey="MerchantID" Type="Product" />
+      <Association Name="Agent_Merchant" Member="Agent" ThisKey="AgentID" OtherKey="ID" Type="Agent" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Merchant" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Merchant1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Merchant2" Member="AuthDirectory2" ThisKey="AuthDirectoryID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_Merchant" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="Industry_Merchant" Member="Industry" ThisKey="IndustryID" OtherKey="ID" Type="Industry" IsForeignKey="true" />
+      <Association Name="Merchant_Merchant" Member="Merchant" ThisKey="ParentMerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="SalesChannel_Merchant" Member="SalesChannel" ThisKey="SalesChannelID" OtherKey="ID" Type="SalesChannel" IsForeignKey="true" />
+      <Association Name="TypeOfBusiness_Merchant" Member="TypeOfBusiness" ThisKey="TypeOfBusinessID" OtherKey="ID" Type="TypeOfBusiness" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantBankDetails" Member="MerchantBankDetails">
+    <Type Name="MerchantBankDetail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BankBranch" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BranchNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MerchantCommission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DebitOrderReference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UseParent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AccountType_MerchantBankDetail" Member="AccountType" ThisKey="AccountTypeID" OtherKey="ID" Type="AccountType" IsForeignKey="true" />
+      <Association Name="AuthDirectory_MerchantBankDetail" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_MerchantBankDetail1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_MerchantBankDetail" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_MerchantBankDetail" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantDetails" Member="MerchantDetails">
+    <Type Name="MerchantDetail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="VATNumber" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PrimaryName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PrimaryPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PrimaryEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AllTerminals" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AdditionalValueAdded" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BillingEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PhysicalAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PostalAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PhysicalSuburb" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PhysicalCity" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PhysicalProvince" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhysicalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PostalSuburb" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PostalCity" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PostalProvince" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TypeOfServiceID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FootprintID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BusinessStructureID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BusinessSizeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantSourceID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantSourceOther" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DesignationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Trustees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YearsInBusiness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MonthsInBusiness" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsJuristicPerson" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsPostalDifferent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApplicationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BillingFirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingSurname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingPhone" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_MerchantDetail" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="BusinessSize_MerchantDetail" Member="BusinessSize" ThisKey="BusinessSizeID" OtherKey="ID" Type="BusinessSize" IsForeignKey="true" />
+      <Association Name="BusinessStructure_MerchantDetail" Member="BusinessStructure" ThisKey="BusinessStructureID" OtherKey="ID" Type="BusinessStructure" IsForeignKey="true" />
+      <Association Name="Designation_MerchantDetail" Member="Designation" ThisKey="DesignationID" OtherKey="ID" Type="Designation" IsForeignKey="true" />
+      <Association Name="Footprint_MerchantDetail" Member="Footprint" ThisKey="FootprintID" OtherKey="ID" Type="Footprint" IsForeignKey="true" />
+      <Association Name="Merchant_MerchantDetail" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="AuthDirectory_MerchantDetail1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="MerchantSource_MerchantDetail" Member="MerchantSource" ThisKey="MerchantSourceID" OtherKey="ID" Type="MerchantSource" IsForeignKey="true" />
+      <Association Name="TypeOfService_MerchantDetail" Member="TypeOfService" ThisKey="TypeOfServiceID" OtherKey="ID" Type="TypeOfService" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantHistory" Member="MerchantHistories">
+    <Type Name="MerchantHistory">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Actor" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MerchantHistoryTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateActioned" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="AuthDirectory_MerchantHistory" Member="AuthDirectory" ThisKey="Actor" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Merchant_MerchantHistory" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="MerchantHistoryType_MerchantHistory" Member="MerchantHistoryType" ThisKey="MerchantHistoryTypeID" OtherKey="ID" Type="MerchantHistoryType" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_MerchantHistory" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantHistoryType" Member="MerchantHistoryTypes">
+    <Type Name="MerchantHistoryType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="MerchantHistoryType_MerchantHistory" Member="MerchantHistories" ThisKey="ID" OtherKey="MerchantHistoryTypeID" Type="MerchantHistory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantProductProviders" Member="MerchantProductProviders">
+    <Type Name="MerchantProductProvider">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Merchant_MerchantProductProvider" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="Merchant_MerchantProductProvider1" Member="Merchant1" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="Product_MerchantProductProvider" Member="Product" ThisKey="ProductID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+      <Association Name="Product_MerchantProductProvider1" Member="Product1" ThisKey="ProductID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+      <Association Name="Provider_MerchantProductProvider" Member="Provider" ThisKey="ProviderID" OtherKey="ID" Type="Provider" IsForeignKey="true" />
+      <Association Name="Provider_MerchantProductProvider1" Member="Provider1" ThisKey="ProviderID" OtherKey="ID" Type="Provider" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantSource" Member="MerchantSources">
+    <Type Name="MerchantSource">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="MerchantSource_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="MerchantSourceID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MerchantTerminal" Member="MerchantTerminals">
+    <Type Name="MerchantTerminal">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ContractTermID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ChannelID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TerminalTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SupplierID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PBLSerial" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EFTVASSerial" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PBLMPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LayByPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EMVPOSPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NonEFTDevicePeriod" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="PBLMFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LBMFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PBLMAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LBMAMount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="EMVPOSAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NonEFTDeviceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PBLMDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LayByDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EMVPOSDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NonEFTDeviceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TerminalActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActivation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsPBLM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsLayBy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsEFTPOS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsNonEFTDevice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="MerchantTerminal_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="MerchantTerminalID" Type="ApplicationRepository" />
+      <Association Name="MerchantTerminal_DebitOrder" Member="DebitOrders" ThisKey="ID" OtherKey="MerchantTerminalID" Type="DebitOrder" />
+      <Association Name="MerchantTerminal_DebitOrderHistory" Member="DebitOrderHistories" ThisKey="ID" OtherKey="MerchantTerminalID" Type="DebitOrderHistory" />
+      <Association Name="MerchantTerminal_MerchantHistory" Member="MerchantHistories" ThisKey="ID" OtherKey="MerchantTerminalID" Type="MerchantHistory" />
+      <Association Name="MerchantTerminal_TerminalMetric" Member="TerminalMetrics" ThisKey="ID" OtherKey="MerchantTerminalID" Type="TerminalMetric" />
+      <Association Name="MerchantTerminal_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="MerchantTerminalID" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_MerchantTerminal" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_MerchantTerminal1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Channel_MerchantTerminal" Member="Channel" ThisKey="ChannelID" OtherKey="ID" Type="Channel" IsForeignKey="true" />
+      <Association Name="ContractTerm_MerchantTerminal" Member="ContractTerm" ThisKey="ContractTermID" OtherKey="ID" Type="ContractTerm" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_MerchantTerminal" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_MerchantTerminal1" Member="EnvironmentRepository1" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_MerchantTerminal" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_MerchantTerminal" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+      <Association Name="Supplier_MerchantTerminal" Member="Supplier" ThisKey="SupplierID" OtherKey="ID" Type="Supplier" IsForeignKey="true" />
+      <Association Name="TerminalType_MerchantTerminal" Member="TerminalType" ThisKey="TerminalTypeID" OtherKey="ID" Type="TerminalType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Metric" Member="Metrics">
+    <Type Name="Metric">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RaiseAlert" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Metric_TerminalMetric" Member="TerminalMetrics" ThisKey="ID" OtherKey="MetricID" Type="TerminalMetric" />
+      <Association Name="AuthDirectory_Metric" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Metric1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OTP" Member="OTPs">
+    <Type Name="OTP">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="KeyID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="OTPTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Redeemed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OTPType" Member="OTPTypes">
+    <Type Name="OTPType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_OTPType" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_OTPType1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Outcome" Member="Outcomes">
+    <Type Name="Outcome">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Subscription" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Commission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Product_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="ProductID" Type="ApplicationRepository" />
+      <Association Name="Product_MerchantProductProvider" Member="MerchantProductProviders" ThisKey="ID" OtherKey="ProductID" Type="MerchantProductProvider" />
+      <Association Name="Product_MerchantProductProvider1" Member="MerchantProductProviders1" ThisKey="ID" OtherKey="ProductID" Type="MerchantProductProvider" />
+      <Association Name="Product_ProductBand" Member="ProductBands" ThisKey="ID" OtherKey="ProductID" Type="ProductBand" />
+      <Association Name="Product_TerminalProduct" Member="TerminalProducts" ThisKey="ID" OtherKey="ProductID" Type="TerminalProduct" />
+      <Association Name="AuthDirectory_Product" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Product1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_Product" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_Product1" Member="EnvironmentRepository1" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_Product" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Merchant_Product" Member="Merchant" ThisKey="MerchantID" OtherKey="ID" Type="Merchant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBand" Member="ProductBands">
+    <Type Name="ProductBand">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BandTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Floor" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Ceiling" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Subscription" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Commission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ProductBand_ProductBandTerm" Member="ProductBandTerms" ThisKey="ID" OtherKey="ProductBandID" Type="ProductBandTerm" />
+      <Association Name="AuthDirectory_ProductBand" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_ProductBand1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="BandType_ProductBand" Member="BandType" ThisKey="BandTypeID" OtherKey="ID" Type="BandType" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_ProductBand" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_ProductBand" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="Product_ProductBand" Member="Product" ThisKey="ProductID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBandTerms" Member="ProductBandTerms">
+    <Type Name="ProductBandTerm">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductBandID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Subscription" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Commission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ProductBand_ProductBandTerm" Member="ProductBand" ThisKey="ProductBandID" OtherKey="ID" Type="ProductBand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Provider" Member="Providers">
+    <Type Name="Provider">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Provider_MerchantProductProvider" Member="MerchantProductProviders" ThisKey="ID" OtherKey="ProviderID" Type="MerchantProductProvider" />
+      <Association Name="Provider_MerchantProductProvider1" Member="MerchantProductProviders1" ThisKey="ID" OtherKey="ProviderID" Type="MerchantProductProvider" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Province" Member="Provinces">
+    <Type Name="Province">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBY" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Province_City" Member="Cities" ThisKey="ID" OtherKey="ProvinceID" Type="City" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Queue" Member="Queues">
+    <Type Name="Queue">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RemoteID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="RepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Queue_Repository" Member="Repositories" ThisKey="ID" OtherKey="DealsQueueID" Type="Repository" />
+      <Association Name="Queue_Repository1" Member="Repositories1" ThisKey="ID" OtherKey="FinanceQueueID" Type="Repository" />
+      <Association Name="Queue_Repository2" Member="Repositories2" ThisKey="ID" OtherKey="CommunicationQueueID" Type="Repository" />
+      <Association Name="Queue_Repository3" Member="Repositories3" ThisKey="ID" OtherKey="PaymentsQueueID" Type="Repository" />
+      <Association Name="Queue_Repository4" Member="Repositories4" ThisKey="ID" OtherKey="SwitchPayQueueID" Type="Repository" />
+      <Association Name="Queue_Repository5" Member="Repositories5" ThisKey="ID" OtherKey="SystemQueueID" Type="Repository" />
+      <Association Name="Queue_Repository6" Member="Repositories6" ThisKey="ID" OtherKey="ApprovePaymentQueueID" Type="Repository" />
+      <Association Name="Queue_Repository7" Member="Repositories7" ThisKey="ID" OtherKey="VerifyPOPQueueID" Type="Repository" />
+      <Association Name="Queue_Repository8" Member="Repositories8" ThisKey="ID" OtherKey="PaymentReceivedQueueID" Type="Repository" />
+      <Association Name="Queue_Repository9" Member="Repositories9" ThisKey="ID" OtherKey="CollectionQueueID" Type="Repository" />
+      <Association Name="Queue_Repository10" Member="Repositories10" ThisKey="ID" OtherKey="WorkflowQueueID" Type="Repository" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RepositoryType" Member="RepositoryTypes">
+    <Type Name="RepositoryType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="RepositoryType_Repository" Member="Repositories" ThisKey="ID" OtherKey="RepositoryTypeID" Type="Repository" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalesChannel" Member="SalesChannels">
+    <Type Name="SalesChannel">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="SalesChannel_Merchant" Member="Merchants" ThisKey="ID" OtherKey="SalesChannelID" Type="Merchant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Suburb" Member="Suburbs">
+    <Type Name="Suburb">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBY" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supplier" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Supplier_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="SupplierID" Type="MerchantTerminal" />
+      <Association Name="FinancialInstitution_Supplier" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TerminalMetric" Member="TerminalMetrics">
+    <Type Name="TerminalMetric">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MetricID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_TerminalMetric" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_TerminalMetric1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_TerminalMetric" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+      <Association Name="Metric_TerminalMetric" Member="Metric" ThisKey="MetricID" OtherKey="ID" Type="Metric" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TerminalProduct" Member="TerminalProducts">
+    <Type Name="TerminalProduct">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MerchantTerminalID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="EnvironmentRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ContractTermID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Subscription" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="MerchantFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Term" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AuthDirectory_TerminalProduct" Member="AuthDirectory" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_TerminalProduct1" Member="AuthDirectory1" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="ContractTerm_TerminalProduct" Member="ContractTerm" ThisKey="ContractTermID" OtherKey="ID" Type="ContractTerm" IsForeignKey="true" />
+      <Association Name="EnvironmentRepository_TerminalProduct" Member="EnvironmentRepository" ThisKey="EnvironmentRepositoryID" OtherKey="ID" Type="EnvironmentRepository" IsForeignKey="true" />
+      <Association Name="FinancialInstitution_TerminalProduct" Member="FinancialInstitution" ThisKey="FinancialInstitutionID" OtherKey="ID" Type="FinancialInstitution" IsForeignKey="true" />
+      <Association Name="MerchantTerminal_TerminalProduct" Member="MerchantTerminal" ThisKey="MerchantTerminalID" OtherKey="ID" Type="MerchantTerminal" IsForeignKey="true" />
+      <Association Name="Product_TerminalProduct" Member="Product" ThisKey="ProductID" OtherKey="ID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TerminalType" Member="TerminalTypes">
+    <Type Name="TerminalType">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TerminalType_ApplicationRepository" Member="ApplicationRepositories" ThisKey="ID" OtherKey="TerminalTypeID" Type="ApplicationRepository" />
+      <Association Name="TerminalType_MerchantTerminal" Member="MerchantTerminals" ThisKey="ID" OtherKey="TerminalTypeID" Type="MerchantTerminal" />
+      <Association Name="AuthDirectory_TerminalType" Member="AuthDirectory" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_TerminalType1" Member="AuthDirectory1" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeOfBusiness" Member="TypeOfBusinesses">
+    <Type Name="TypeOfBusiness">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TypeOfBusiness_Merchant" Member="Merchants" ThisKey="ID" OtherKey="TypeOfBusinessID" Type="Merchant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeOfService" Member="TypeOfServices">
+    <Type Name="TypeOfService">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TypeOfService_MerchantDetail" Member="MerchantDetails" ThisKey="ID" OtherKey="TypeOfServiceID" Type="MerchantDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UniversalBankCodes" Member="UniversalBankCodes">
+    <Type Name="UniversalBankCode">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="FinancialInstitutionID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.URL" Member="URLs">
+    <Type Name="URL">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DNS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PostFix" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Port" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="AuthUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FailOver1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FailOver2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="URL_Environment" Member="Environments" ThisKey="ID" OtherKey="APIURLID" Type="Environment" />
+      <Association Name="URL_Environment1" Member="Environments1" ThisKey="ID" OtherKey="ExternalWebAPIURLID" Type="Environment" />
+      <Association Name="URL_Environment2" Member="Environments2" ThisKey="ID" OtherKey="VodacomHTTPURLID" Type="Environment" />
+      <Association Name="URL_Environment3" Member="Environments3" ThisKey="ID" OtherKey="VodacomRESTURLID" Type="Environment" />
+      <Association Name="URL_Environment4" Member="Environments4" ThisKey="ID" OtherKey="VodacomSOAPURLID" Type="Environment" />
+      <Association Name="URL_Environment5" Member="Environments5" ThisKey="ID" OtherKey="ConnectMobileNIUSSDURLID" Type="Environment" />
+      <Association Name="URL_Environment6" Member="Environments6" ThisKey="ID" OtherKey="ConnectMobileSMSURLID" Type="Environment" />
+      <Association Name="URL_Environment7" Member="Environments7" ThisKey="ID" OtherKey="ImagesURLID" Type="Environment" />
+      <Association Name="URL_Environment8" Member="Environments8" ThisKey="ID" OtherKey="InternalWebAPIURLID" Type="Environment" />
+      <Association Name="URL_Environment9" Member="Environments9" ThisKey="ID" OtherKey="PortalURLID" Type="Environment" />
+      <Association Name="URL_Environment10" Member="Environments10" ThisKey="ID" OtherKey="SecondaryProcessURLID" Type="Environment" />
+      <Association Name="URL_Environment11" Member="Environments11" ThisKey="ID" OtherKey="USSDURLID" Type="Environment" />
+      <Association Name="URL_Environment12" Member="Environments12" ThisKey="ID" OtherKey="WebLinkURLID" Type="Environment" />
+      <Association Name="URL_Environment13" Member="Environments13" ThisKey="ID" OtherKey="ACPASURLID" Type="Environment" />
+      <Association Name="URL_Environment14" Member="Environments14" ThisKey="ID" OtherKey="CompuScanURLID" Type="Environment" />
+      <Association Name="URL_Repository" Member="Repositories" ThisKey="ID" OtherKey="URLID" Type="Repository" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vPaymentRequestStage" Member="vPaymentRequestStages">
+    <Type Name="vPaymentRequestStage">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MerchantName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(1001)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CurrDate" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Industry" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWFUAT" Member="vWFUATs">
+    <Type Name="vWFUAT">
+      <Column Name="ApplicationID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VirtualActorId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsActiveUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActivityDisplayName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InternalStatus" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="CurrentStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnershipDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EIStatus" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Output" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InlinkActionExecutionDetailsID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InlinkActionOutput" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LocalVariablesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExecutionEndedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QueueID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Queue" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NewItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InProgressItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompletedItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vPaymentRequestUAT" Member="vPaymentRequestUATs">
+    <Type Name="vPaymentRequestUAT">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MerchantName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(1001)" CanBeNull="true" />
+      <Column Name="IDNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CurrDate" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="OfferAmount" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Industry" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWFProduction" Member="vWFProductions">
+    <Type Name="vWFProduction">
+      <Column Name="ApplicationID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VirtualActorId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsActiveUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActivityDisplayName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InternalStatus" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="CurrentStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnershipDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EIStatus" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Output" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InlinkActionExecutionDetailsID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InlinkActionOutput" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LocalVariablesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExecutionEndedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QueueID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Queue" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NewItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InProgressItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompletedItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vWFStage" Member="vWFStages">
+    <Type Name="vWFStage">
+      <Column Name="ApplicationID" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="VirtualActorId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsActiveUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActivityDisplayName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InternalStatus" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="CurrentStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnershipDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="exName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EIStatus" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Output" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InlinkActionExecutionDetailsID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InlinkActionOutput" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ActionType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LocalVariablesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExecutionEndedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QueueID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Queue" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NewItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InProgressItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompletedItemCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vDisbursement" Member="vDisbursements">
+    <Type Name="vDisbursement">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DebitOrderTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Merchant" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="AwaitingRelease" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Released" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateReleased" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DatePaid" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Commission" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FileID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vDebitOrder" Member="vDebitOrders">
+    <Type Name="vDebitOrder">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DebitOrderTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MerchantID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Merchant" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Reference" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Repository" Member="Repositories">
+    <Type Name="Repository">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultIDNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultMobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DefaultBank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultOTP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SystemQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SwitchPayQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FinanceQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DealsQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PaymentsQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VerifyPOPQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ApprovePaymentQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="URLID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EntryWorkflow" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DealAdminWorkflow" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DashboardWorkflow" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MainDatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RulesEngineDBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MainRepositoryID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RepositoryTypeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ServiceUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SwitchPayUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AdminUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IntegrationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FirstEscalationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SecondEscalationUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACPASUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CompuscanUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VodacomUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileSMSUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ConnectMobileNIUSSDUserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PaymentReceivedQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CollectionQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="WorkflowQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CommunicationQueueID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RepositoryDatabaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Repository_AuthDirectory" Member="AuthDirectories" ThisKey="ID" OtherKey="RepositoryID" Type="AuthDirectory" />
+      <Association Name="Repository_AuthDirectoryRepository" Member="AuthDirectoryRepositories" ThisKey="ID" OtherKey="RepositoryID" Type="AuthDirectoryRepository" />
+      <Association Name="Repository_Environment" Member="Environments" ThisKey="ID" OtherKey="MainRepositoryID" Type="Environment" />
+      <Association Name="Repository_EnvironmentRepository" Member="EnvironmentRepositories" ThisKey="ID" OtherKey="RepositoryID" Type="EnvironmentRepository" />
+      <Association Name="Repository_Repository" Member="Repositories" ThisKey="ID" OtherKey="MainRepositoryID" Type="Repository" />
+      <Association Name="AuthDirectory_Repository" Member="AuthDirectory" ThisKey="AdminUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository1" Member="AuthDirectory1" ThisKey="CreatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository2" Member="AuthDirectory2" ThisKey="ConnectMobileNIUSSDUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository3" Member="AuthDirectory3" ThisKey="ConnectMobileSMSUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository4" Member="AuthDirectory4" ThisKey="VodacomUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository5" Member="AuthDirectory5" ThisKey="FirstEscalationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository6" Member="AuthDirectory6" ThisKey="IntegrationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository7" Member="AuthDirectory7" ThisKey="SecondEscalationUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository8" Member="AuthDirectory8" ThisKey="ServiceUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository9" Member="AuthDirectory9" ThisKey="SwitchPayUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository10" Member="AuthDirectory10" ThisKey="UpdatedBy" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository11" Member="AuthDirectory11" ThisKey="ACPASUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="AuthDirectory_Repository12" Member="AuthDirectory12" ThisKey="CompuscanUserID" OtherKey="ID" Type="AuthDirectory" IsForeignKey="true" />
+      <Association Name="Database_Repository" Member="Database" ThisKey="DatabaseID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Database_Repository1" Member="Database1" ThisKey="MainDatabaseID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Database_Repository2" Member="Database2" ThisKey="RulesEngineDBID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Database_Repository3" Member="Database3" ThisKey="RepositoryDatabaseID" OtherKey="ID" Type="Database" IsForeignKey="true" />
+      <Association Name="Queue_Repository" Member="Queue" ThisKey="DealsQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository1" Member="Queue1" ThisKey="FinanceQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository2" Member="Queue2" ThisKey="CommunicationQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository3" Member="Queue3" ThisKey="PaymentsQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository4" Member="Queue4" ThisKey="SwitchPayQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository5" Member="Queue5" ThisKey="SystemQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository6" Member="Queue6" ThisKey="ApprovePaymentQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository7" Member="Queue7" ThisKey="VerifyPOPQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository8" Member="Queue8" ThisKey="PaymentReceivedQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository9" Member="Queue9" ThisKey="CollectionQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Queue_Repository10" Member="Queue10" ThisKey="WorkflowQueueID" OtherKey="ID" Type="Queue" IsForeignKey="true" />
+      <Association Name="Repository_Repository" Member="Repository" ThisKey="MainRepositoryID" OtherKey="ID" Type="Repository" IsForeignKey="true" />
+      <Association Name="RepositoryType_Repository" Member="RepositoryType" ThisKey="RepositoryTypeID" OtherKey="ID" Type="RepositoryType" IsForeignKey="true" />
+      <Association Name="URL_Repository" Member="URL" ThisKey="URLID" OtherKey="ID" Type="URL" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

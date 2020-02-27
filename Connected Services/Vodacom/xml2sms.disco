@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://soap.gsm.co.za/xml2sms.asmx?wsdl" docRef="https://soap.gsm.co.za/xml2sms.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://soap.gsm.co.za/xml2sms.asmx" xmlns:q1="https://soap.gsm.co.za/" binding="q1:XML2SMSServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://soap.gsm.co.za/xml2sms.asmx" xmlns:q2="https://soap.gsm.co.za/" binding="q2:XML2SMSServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

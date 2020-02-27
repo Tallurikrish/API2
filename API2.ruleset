@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Rules for API2" Description="Code analysis rules for API2.vbproj." ToolsVersion="16.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="DevExpress.CodeAnalysis.VisualBasic.Diagnostics" RuleNamespace="DevExpress.CodeAnalysis.VisualBasic.Diagnostics">
+    <Rule Id="CRRSP01" Action="None" />
+    <Rule Id="CRRSP02" Action="None" />
+    <Rule Id="CRRSP03" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.Features" RuleNamespace="Microsoft.CodeAnalysis.Features">
+    <Rule Id="IDE0010" Action="None" />
+    <Rule Id="IDE0010WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0033" Action="None" />
+    <Rule Id="IDE0033WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0044" Action="None" />
+    <Rule Id="IDE0044WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0055" Action="None" />
+    <Rule Id="IDE0055WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0067" Action="None" />
+    <Rule Id="IDE0068" Action="None" />
+    <Rule Id="IDE0069" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.VisualBasic.Features" RuleNamespace="Microsoft.CodeAnalysis.VisualBasic.Features">
+    <Rule Id="IDE0001" Action="None" />
+    <Rule Id="IDE0002" Action="None" />
+    <Rule Id="IDE0003" Action="None" />
+    <Rule Id="IDE0003WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0004" Action="None" />
+    <Rule Id="IDE0004WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0005" Action="None" />
+    <Rule Id="IDE0009" Action="None" />
+    <Rule Id="IDE0009WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0017" Action="None" />
+    <Rule Id="IDE0017WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0028" Action="None" />
+    <Rule Id="IDE0028WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0029" Action="None" />
+    <Rule Id="IDE0029WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0030" Action="None" />
+    <Rule Id="IDE0030WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0031" Action="None" />
+    <Rule Id="IDE0031WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0032" Action="None" />
+    <Rule Id="IDE0032WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0036" Action="None" />
+    <Rule Id="IDE0036WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0037" Action="None" />
+    <Rule Id="IDE0037WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0040" Action="None" />
+    <Rule Id="IDE0040WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0041" Action="None" />
+    <Rule Id="IDE0041WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0045" Action="None" />
+    <Rule Id="IDE0045WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0046" Action="None" />
+    <Rule Id="IDE0046WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0047" Action="None" />
+    <Rule Id="IDE0048" Action="None" />
+    <Rule Id="IDE0048WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0049" Action="None" />
+    <Rule Id="IDE0049WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0050" Action="None" />
+    <Rule Id="IDE0050WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0051" Action="None" />
+    <Rule Id="IDE0052" Action="None" />
+    <Rule Id="IDE0054" Action="None" />
+    <Rule Id="IDE0054WithoutSuggestion" Action="None" />
+    <Rule Id="IDE0058" Action="None" />
+    <Rule Id="IDE0059" Action="None" />
+    <Rule Id="IDE0060" Action="None" />
+    <Rule Id="IDE1006" Action="None" />
+    <Rule Id="IDE1006WithoutSuggestion" Action="None" />
+    <Rule Id="RE0001" Action="None" />
+    <Rule Id="RE0001WithoutSuggestion" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+    <Rule Id="CA1012" Action="None" />
+    <Rule Id="CA1027" Action="None" />
+    <Rule Id="CA1031" Action="None" />
+    <Rule Id="CA1034" Action="None" />
+    <Rule Id="CA1036" Action="None" />
+    <Rule Id="CA1052" Action="None" />
+    <Rule Id="CA1061" Action="None" />
+    <Rule Id="CA1063" Action="None" />
+    <Rule Id="CA1068" Action="None" />
+    <Rule Id="CA1802" Action="None" />
+    <Rule Id="CA1815" Action="None" />
+    <Rule Id="CA1819" Action="None" />
+    <Rule Id="CA1822" Action="None" />
+    <Rule Id="CA2217" Action="None" />
+    <Rule Id="CA2219" Action="None" />
+    <Rule Id="CA2231" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeQuality.VisualBasic.Analyzers" RuleNamespace="Microsoft.CodeQuality.VisualBasic.Analyzers">
+    <Rule Id="CA1032" Action="None" />
+    <Rule Id="CA1507" Action="None" />
+    <Rule Id="CA1821" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetCore.Analyzers" RuleNamespace="Microsoft.NetCore.Analyzers">
+    <Rule Id="CA1813" Action="None" />
+    <Rule Id="CA1820" Action="None" />
+    <Rule Id="CA2101" Action="None" />
+    <Rule Id="CA2229" Action="None" />
+    <Rule Id="CA2235" Action="None" />
+    <Rule Id="CA2237" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetCore.VisualBasic.Analyzers" RuleNamespace="Microsoft.NetCore.VisualBasic.Analyzers">
+    <Rule Id="CA1810" Action="None" />
+    <Rule Id="CA1825" Action="None" />
+    <Rule Id="CA2207" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetFramework.Analyzers" RuleNamespace="Microsoft.NetFramework.Analyzers">
+    <Rule Id="CA3147" Action="None" />
+  </Rules>
+</RuleSet>

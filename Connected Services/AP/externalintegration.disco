@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx?wsdl" docRef="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx" xmlns:q1="http://www.acpas.co.za/wsIntegration/externalintegration.asmx" binding="q1:externalintegrationSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://secure.acpas.co.za/wsIntegration/externalintegration.asmx" xmlns:q2="http://www.acpas.co.za/wsIntegration/externalintegration.asmx" binding="q2:externalintegrationSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
